@@ -1,0 +1,67 @@
+\begin{frame}[fragile]{Method 1: Network Construction}
+    \begin{itemize}
+        \item Construct time-varying co-inventor networks for each 5-year window
+        \item Edges connect inventors who collaborate on patents
+        \item \textbf{Network-of-Places Transformation:} Collapse structurally equivalent inventors to mitigate team-size bias
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    
+    \begin{eqbox}
+        \textbf{Key Insight:} Team size can distort individual network measurements; structural equivalence addresses this
+    \end{eqbox}
+    
+    \vspace{0.5cm}
+    
+    \begin{itemize}
+        \item Two centrality measures computed for each inventor:
+        \begin{enumerate}
+            \item \textit{Betweenness centrality} (global, brokerage-focused)
+            \item \textit{Burt's constraint} (ego-centric, clustering-focused)
+        \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Method 2: Atypicality Measurement}
+    \begin{itemize}
+        \item Measure novelty of patent via combinatorial recombination
+        \item \textbf{Z-Score (Uzzi et al., Verhoeven et al.):}
+        \[
+        Z_{pairij} = \frac{O_{ij} - E_{ij}}{SD_{ij}}
+        \]
+        where $O_{ij}$ is observed co-occurrence and $E_{ij}$ is expected under null
+        
+        \item \textbf{Patent-Level Atypicality:} Min, max, or median of all pairwise Z-scores
+        \item \textbf{Threshold:} $Z < 0$ or $Z < -2$ for robustness
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    
+    \begin{eqbox}
+        Rare combinations $\Rightarrow$ Atypical (novel) recombinations
+    \end{eqbox}
+\end{frame}
+
+\begin{frame}[fragile]{Method 3: Econometric Specification}
+    \textbf{Panel Regression (Fixed Effects):}
+    \begin{equation*}
+    \text{Atypical}_{i,r,t} = \beta_0 + \beta_1 \text{Brokerage}_{i,t} + \gamma X_{i,t} + \delta_r + \tau_t + \epsilon_{i,r,t}
+    \end{equation*}
+    
+    \vspace{0.3cm}
+    
+    \begin{itemize}
+        \item $\delta_r$: NUTS~2 region fixed effects
+        \item $\tau_t$: Time window fixed effects
+        \item $X_{i,t}$: Inventor controls (patents, experience)
+        \item SE clustered at regional level
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    
+    \textbf{Moderating Analyses:}
+    \begin{enumerate}
+        \item Intrafirm vs. Interfirm brokerage interaction
+        \item Regional technological relatedness interaction
+    \end{enumerate}
+\end{frame}

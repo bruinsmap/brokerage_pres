@@ -1,0 +1,56 @@
+\begin{frame}[fragile]{Key Variables: Network Measures}
+    \begin{itemize}
+        \item \textbf{Brokerage:} Betweenness centrality --- extent to which inventor lies on shortest paths between others
+        \item \textbf{Constraint:} Burt's constraint --- redundancy of immediate network neighborhood (inverse of brokerage)
+        \item \textbf{Effective Size:} Number of non-redundant contacts
+        \item \textbf{Degree:} Number of co-inventors in a window
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    
+    \scriptsize
+    \begin{tabular}{lrrrr}
+        \toprule
+        Variable & Mean & SD & Median & Range \\
+        \midrule
+        Brokerage & 0.203 & 0.270 & 0.082 & [-0.99, 0.99] \\
+        Constraint & 0.797 & 0.270 & 0.918 & [0.01, 1.99] \\
+        Degree & 3.726 & 4.773 & 3 & [1, 600] \\
+        \bottomrule
+    \end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]{Key Variables: Atypicality Measures}
+    \begin{itemize}
+        \item \textbf{Atypical Patent:} Flag if has at least one CPC subclass pair with $Z < 0$ (or $Z < -2$ for stringent threshold)
+        \item \textbf{Z-score:} Uzzi's measure based on historical rarity of CPC pairings
+        \item \textbf{Share of Atypical Codes:} Proportion of atypical pairs in a patent
+        \item \textbf{Count of Atypical Pairs:} Total number of atypical code combinations
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    
+    \begin{eqbox}
+        Approximately \textbf{17.5\%} of inventor-window observations have at least one atypical patent ($Z < 0$)
+    \end{eqbox}
+\end{frame}
+
+\begin{frame}[fragile]{Controls \& Moderators}
+    \begin{itemize}
+        \item \textbf{Inventor Characteristics:}
+        \begin{itemize}
+            \item Number of prior patents (productivity)
+            \item Experience (time windows in network)
+        \end{itemize}
+        
+        \item \textbf{Geographic Scope:} NUTS~2 region fixed effects
+        
+        \item \textbf{Temporal:} Time window fixed effects
+        
+        \item \textbf{Moderators:}
+        \begin{itemize}
+            \item Intrafirm vs. Interfirm brokerage
+            \item Regional technological relatedness
+        \end{itemize}
+    \end{itemize}
+\end{frame}

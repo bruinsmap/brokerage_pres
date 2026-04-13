@@ -1,0 +1,47 @@
+\begin{frame}[fragile]{Patent Data: OECD REGPAT}
+    \begin{itemize}
+        \item \textbf{Source:} European Patent Office (EPO) PATSTAT database, April 2024 edition
+        \item \textbf{Coverage:} All EU-28 countries, 1984--2023 (40 years)
+        \item \textbf{Unit of Analysis:} Inventor-window observations in 5-year rolling windows (T1--T8)
+        \item \textbf{Geographic Scope:} Inventors assigned to NUTS~2 regions based on registered addresses
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    
+    \begin{table}[H]
+        \centering
+        \small
+        \begin{tabular}{lr}
+            \toprule
+            Network Sample (2+ inventors) & 5,452,904 obs. \\
+            Estimation Sample (2+ CPC codes) & 2,459,067 obs. \\
+            Time Period & 40 years \\
+            Regions & NUTS~2 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}[fragile]{Sample Distribution Over Time}
+    \begin{itemize}
+        \item Sample grows substantially (reflecting expanding patenting activity)
+        \item T8 (2019--2023) shows slight decline (publication lag, incomplete recent data)
+        \item Balanced panel structure enables tracking of individual inventors across periods
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    
+    \small
+    \centering
+    \begin{tabular}{llrr}
+        \toprule
+        Window & Years & Observations & \% \\
+        \midrule
+        T1 & 1984--1988 & 113,376 & 4.6\% \\
+        \ldots & \ldots & \ldots & \ldots \\
+        T8 & 2019--2023 & 314,057 & 12.8\% \\
+        \midrule
+        \textbf{Total} & \textbf{1984--2023} & \textbf{2,459,067} & \textbf{100\%} \\
+        \bottomrule
+    \end{tabular}
+\end{frame}
