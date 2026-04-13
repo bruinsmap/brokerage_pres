@@ -1,31 +1,32 @@
 \begin{frame}{How we measure the mechanism}
 \scriptsize
 \begin{columns}[T,onlytextwidth]
-\column{0.49\textwidth}
+\column{0.48\textwidth}
 \begin{softbox}[title=Brokerage]
-Bridges expose inventors to non-redundant knowledge.\\[0.15cm]
-Main measure: standardized brokerage / constraint-based network position.\\[0.15cm]
-Mean $=0.203$, median $=0.082$.
+We proxy brokerage with a constraint-based network position: low constraint means the inventor connects neighborhoods that are not already densely tied to one another.\\[0.08cm]
+\textbf{Distribution:} mean $=0.203$, median $=0.082$.
 \end{softbox}
 
-\column{0.49\textwidth}
+\column{0.48\textwidth}
 \begin{softbox}[title=Atypicality]
-Patents are atypical when CPC subclass pairs occur much less often than expected historically.\\[0.15cm]
-At $Z<0$, 17.5\% of inventor-window observations contain at least one atypical patent; at $Z<-2$, 14.6\% do.
+Patents are atypical when CPC subclass pairs appear together much less often than expected from historical co-occurrence.\\[0.08cm]
+\textbf{Incidence:} 17.5\% of inventor-window observations contain at least one atypical patent at $Z<0$, and 14.6\% do at $Z<-2$.
 \end{softbox}
 \end{columns}
 
-\vspace{0.3cm}
-
+\vspace{0.1cm}
+\begin{columns}[T,onlytextwidth]
+\column{0.54\textwidth}
 \begin{eqbox}
 \[
 Z_{ij}=\frac{O_{ij}-E_{ij}}{\sigma_{ij}}
 \]
-Low $Z$ means the pairing is rarer than chance.
+Lower $Z$ means the pairing is rarer than chance.
 \end{eqbox}
 
-\vspace{0.2cm}
-\begin{center}
-\begin{pill}Thresholds used in the talk: $Z<0$, $Z<-2$, $Z<-5$, $Z<-14$\end{pill}
-\end{center}
+\column{0.42\textwidth}
+\begin{accentbox}[title=Thresholds used in the talk]
+$Z<0$ for broad novelty, $Z<-2$ as the preferred benchmark, and $Z<-5$ / $Z<-14$ for rarer combinations.
+\end{accentbox}
+\end{columns}
 \end{frame}

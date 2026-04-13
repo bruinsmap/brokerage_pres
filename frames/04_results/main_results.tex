@@ -1,17 +1,33 @@
 \begin{frame}{Baseline result: brokerage predicts atypical patents}
+\small
 \begin{figure}
     \centering
-    \includegraphics[height=0.56\textheight,keepaspectratio]{imgs/results/figure1_marginal_effects.pdf}
+    \includegraphics[height=0.33\textheight,keepaspectratio]{imgs/results/figure1_marginal_effects.pdf}
 \end{figure}
 \slidesource{authors' pipeline output based on EPO PATSTAT}
 
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\begin{softbox}[title=What to look at]
+All threshold-specific estimates remain positive, and the confidence intervals are tight enough to rule out a pooled null effect.
+\end{softbox}
+
+\column{0.48\textwidth}
+\begin{softbox}[title=Speaker note]
+The pooled effect is not huge, but it is too stable across thresholds and specifications to dismiss as noise.
+\end{softbox}
+\end{columns}
+
+\vspace{0.1cm}
 \begin{eqbox}
-Positive and precise across thresholds: one standard-deviation more brokerage raises the odds of atypical patenting by roughly \textbf{5--6\%}.
+Across thresholds, one standard-deviation more brokerage raises the odds of atypical patenting by roughly \textbf{5--6\%}. That is modest, but persistent at European scale.
 \end{eqbox}
 \end{frame}
 
-\begin{frame}{The core coefficients are economically small, but consistently positive}
-\small
+\begin{frame}{The core coefficients are economically modest, but consistently positive}
+\scriptsize
+\begin{columns}[T,onlytextwidth]
+\column{0.58\textwidth}
 \centering
 \begin{tabular}{lccc}
 \toprule
@@ -23,18 +39,14 @@ $Z<-5$  & 0.0582$^{***}$ & +\orchange{0.0582} & rarer combinations \\
 $Z<-14$ & 0.0541$^{***}$ & +\orchange{0.0541} & extreme rarity \\
 \bottomrule
 \end{tabular}
+\column{0.38\textwidth}
+\begin{softbox}[title=What does not happen]
+Brokerage does not transform the whole portfolio into exotic combinations.
+\end{softbox}
 
-\vspace{0.55cm}
-
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\begin{block}{What does not happen}
-Brokerage does not mainly change the overall share of unusual pairs everywhere; the key move is crossing into atypical recombination at all.
-\end{block}
-
-\column{0.48\textwidth}
-\begin{block}{What does happen}
-Once an inventor becomes more bridging, the probability of producing a non-standard pairing rises in every binary and count specification we report.
-\end{block}
+\vspace{0.15cm}
+\begin{softbox}[title=What does happen]
+It raises the chance of crossing into atypical recombination at least once --- the core extensive-margin result.
+\end{softbox}
 \end{columns}
 \end{frame}

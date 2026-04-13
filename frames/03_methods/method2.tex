@@ -1,25 +1,24 @@
 \begin{frame}{What we test beyond the baseline}
-\centering
-\scalebox{0.92}{\begin{tikzpicture}[every node/.style={font=\bfseries,align=center}]
-\node[draw=structure.fg,fill=BerlinLight,text=structure.fg,minimum width=3.9cm,minimum height=2.1cm] (h1) {Baseline\\Brokerage predicts\\atypicality};
-\node[draw=structure.fg,fill=white,text=structure.fg,minimum width=3.9cm,minimum height=2.1cm,right=0.55cm of h1] (h2) {Network variants\\Does the effect survive\\other tie definitions?};
-\node[draw=structure.fg,fill=BerlinLight,text=structure.fg,minimum width=3.9cm,minimum height=2.1cm,right=0.55cm of h2] (h3) {History\\When does brokerage\\matter most?};
-
-\draw[-{Stealth[length=3mm]},thick,structure.fg] (h1) -- (h2);
-\draw[-{Stealth[length=3mm]},thick,structure.fg] (h2) -- (h3);
-\end{tikzpicture}}
-
-\vspace{0.65cm}
-
+\scriptsize
 \begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\begin{accentbox}
-\textbf{Organizational robustness:} does the signal disappear once we isolate or downweight within-firm ties?
-\end{accentbox}
+\column{0.31\textwidth}
+\begin{softbox}[title=1. Baseline]
+Does higher brokerage increase the probability of producing at least one atypical patent?
+\end{softbox}
 
-\column{0.48\textwidth}
-\begin{accentbox}
-\textbf{Temporal heterogeneity:} is brokerage a permanent advantage or a context-dependent one?
-\end{accentbox}
+\column{0.31\textwidth}
+\begin{softbox}[title=2. Network variants]
+Does the signal survive if we isolate interfirm ties or downweight within-firm ties?
+\end{softbox}
+
+\column{0.34\textwidth}
+\begin{softbox}[title=3. Historical contingency]
+Is brokerage a permanent advantage, or does its payoff depend on the period?
+\end{softbox}
 \end{columns}
+
+\vspace{0.18cm}
+\begin{accentbox}[title=Why these extensions matter]
+If the relationship is real, it should hold beyond one network definition. If the mechanism is substantive, it should also tell us \textbf{which boundaries matter most} and \textbf{when brokerage pays off}.
+\end{accentbox}
 \end{frame}

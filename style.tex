@@ -1,6 +1,7 @@
 \usetheme{Berlin}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{caption}[numbered]
+\setbeamertemplate{blocks}[rounded][shadow=false]
 
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
@@ -20,37 +21,74 @@
 \usetikzlibrary{positioning,arrows.meta,fit,shapes.geometric}
 
 % ===== central style controls for future recoloring =====
-\definecolor{BerlinLight}{RGB}{200,220,240}
-\definecolor{navy}{HTML}{0E213B}
-\definecolor{accent}{HTML}{4B7FAD}
-\definecolor{softbg}{RGB}{244,247,250}
-\definecolor{softline}{RGB}{191,205,219}
-\definecolor{highlight}{HTML}{133C55}
+\definecolor{BerlinLight}{RGB}{223,235,246}
+\definecolor{navy}{HTML}{15324B}
+\definecolor{accent}{HTML}{2E6F95}
+\definecolor{softbg}{RGB}{247,249,252}
+\definecolor{softline}{RGB}{202,214,226}
+\definecolor{highlight}{HTML}{0E4D64}
 \definecolor{warninggold}{HTML}{C98A00}
+\definecolor{textdark}{HTML}{1E2933}
+\definecolor{muted}{HTML}{5B6770}
+\definecolor{whiteblue}{RGB}{252,253,255}
 
-\setbeamercolor{structure}{fg=navy}
+\setbeamercolor{normal text}{fg=textdark,bg=white}
+\setbeamercolor{structure}{fg=accent}
 \setbeamercolor{frametitle}{fg=white,bg=navy}
 \setbeamercolor{title}{fg=navy}
-\setbeamercolor{subtitle}{fg=navy}
+\setbeamercolor{subtitle}{fg=muted}
+\setbeamercolor{author}{fg=textdark}
+\setbeamercolor{date}{fg=muted}
 \setbeamercolor{block title}{fg=white,bg=navy}
-\setbeamercolor{block body}{fg=black,bg=softbg}
+\setbeamercolor{block body}{fg=textdark,bg=softbg}
+\setbeamercolor{section in head/foot}{fg=white,bg=accent}
+\setbeamercolor{subsection in head/foot}{fg=white,bg=navy}
 \setbeamercolor{section in toc}{fg=navy}
 \setbeamercolor{subsection in toc}{fg=accent}
+\setbeamercolor{item}{fg=accent}
+\setbeamercolor{alerted text}{fg=highlight}
 
 \setbeamerfont{title}{series=\bfseries,size=\LARGE}
 \setbeamerfont{subtitle}{size=\large}
 \setbeamerfont{frametitle}{series=\bfseries,size=\large}
+\setbeamerfont{block title}{series=\bfseries}
+
+\setbeamertemplate{title page}{%
+  \vbox{}
+  \vfill
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=0.09\paperwidth,rightskip=0.09\paperwidth,sep=0pt]{title}
+    {\usebeamerfont{title}\inserttitle\par}
+    \vspace{0.3cm}
+    {\usebeamerfont{subtitle}\insertsubtitle\par}
+    \vspace{0.8cm}
+    \begin{tcolorbox}[colback=softbg,colframe=softline,boxrule=0.8pt,arc=4pt,left=8pt,right=8pt,top=8pt,bottom=8pt]
+      {\normalsize \insertauthor\par}
+      \vspace{0.12cm}
+      {\small \insertinstitute\par}
+      \vspace{0.12cm}
+      {\small \insertdate\par}
+    \end{tcolorbox}
+  \end{beamercolorbox}
+  \vfill
+}
 
 \tcbset{boxsep=2pt,left=5pt,right=5pt,top=4pt,bottom=4pt,arc=5pt}
-\newtcolorbox{pill}[1][]{colback=navy,coltext=white,colframe=navy,boxrule=0pt,arc=7pt,left=8pt,right=8pt,top=4pt,bottom=4pt,#1}
-\newtcolorbox{eqbox}[1][]{colback=white,colframe=navy,boxrule=.8pt,arc=4pt,left=8pt,right=8pt,top=6pt,bottom=6pt,#1}
-\newtcolorbox{softbox}[1][]{colback=softbg,colframe=softline,boxrule=.8pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,#1}
-\newtcolorbox{accentbox}[1][]{colback=BerlinLight!55,colframe=accent,boxrule=.8pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,#1}
+\newtcolorbox{pill}[1][]{colback=navy,coltext=white,colframe=navy,boxrule=0pt,arc=7pt,left=8pt,right=8pt,top=4pt,bottom=4pt,fontupper=\bfseries,#1}
+\newtcolorbox{eqbox}[1][]{colback=whiteblue,colframe=accent,boxrule=.9pt,arc=4pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,#1}
+\newtcolorbox{softbox}[1][]{colback=softbg,colframe=softline,boxrule=.8pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,fonttitle=\bfseries,coltitle=navy,#1}
+\newtcolorbox{accentbox}[1][]{colback=BerlinLight!45,colframe=accent,boxrule=.9pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,fonttitle=\bfseries,coltitle=navy,#1}
+\newtcolorbox{statbox}[1][]{colback=white,colframe=navy,boxrule=.9pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,fonttitle=\bfseries,coltitle=navy,#1}
 
 \newcommand{\takeaway}[1]{%
-  \begin{beamercolorbox}[sep=8pt,rounded=true,shadow=true,center]{block body}
+  \begin{beamercolorbox}[sep=8pt,rounded=true,shadow=false,center]{block body}
   \textbf{#1}
   \end{beamercolorbox}%
+}
+
+\newcommand{\insight}[2]{%
+  \begin{softbox}[title=#1]
+  #2
+  \end{softbox}%
 }
 
 \newcommand{\slidesource}[1]{%
