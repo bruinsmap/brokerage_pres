@@ -1,28 +1,36 @@
-\begin{frame}[fragile]{Additional Results}
-    \textbf{Placeholder for detailed tables or figures}
-    
-    \begin{itemize}
-        \item Full regression table with all specifications
-        \item Effect sizes with confidence intervals
-        \item Additional covariates and sensitivity analyses
-    \end{itemize}
+\begin{frame}{Backup: country heterogeneity}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.92\textwidth]{imgs/results/figure3_country_heterogeneity.pdf}
+\end{figure}
+\slidesource{authors' heterogeneity pipeline}
 \end{frame}
 
-\begin{frame}[fragile]{Data Appendix}
-    \textbf{Placeholder for data documentation}
-    
-    \begin{itemize}
-        \item Variable definitions and sources
-        \item Sample construction details
-        \item Correlation matrix of key variables
-    \end{itemize}
+\begin{frame}{Backup: career-stage heterogeneity}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.92\textwidth]{imgs/results/figure6_experience_heterogeneity.pdf}
+\end{figure}
+\slidesource{authors' heterogeneity pipeline}
 \end{frame}
 
-\begin{frame}[fragile]{Network Visualization}
-    \textbf{Placeholder for network diagrams}
-    
-    \begin{itemize}
-        \item Example co-inventor network
-        \item Highlighting broker and non-broker positions
-    \end{itemize}
+\begin{frame}{Backup: threshold robustness table}
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+Threshold & Brokerage $\beta$ & Odds change & $N$ \\
+\midrule
+$Z<0$   & 0.0466$^{***}$ & +\orchange{0.0466} & 2,458,931 \\
+$Z<-2$  & 0.0537$^{***}$ & +\orchange{0.0537} & 2,458,929 \\
+$Z<-5$  & 0.0582$^{***}$ & +\orchange{0.0582} & 2,458,929 \\
+$Z<-14$ & 0.0541$^{***}$ & +\orchange{0.0541} & 2,458,627 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.55cm}
+
+\begin{eqbox}
+The sign and significance survive stricter rarity thresholds, which is why the main story does not depend on one arbitrary cutoff.
+\end{eqbox}
 \end{frame}

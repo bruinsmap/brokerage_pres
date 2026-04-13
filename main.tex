@@ -1,113 +1,56 @@
 \documentclass{beamer}
-\usetheme{Berlin}
-\setbeamertemplate{caption}[numbered]
-\usepackage{svg}
-\usepackage{graphicx}
-\usepackage[english]{babel}
-\usepackage{tikz}
-\usepackage{makecell}
-\usetikzlibrary{positioning}
-\usepackage{tcolorbox}
-\usepackage{amsmath} 
-\usepackage{xcolor} 
-\usepackage{booktabs}
-\usepackage{multirow}
-
-
-\definecolor{BerlinLight}{RGB}{200,220,240}
-\definecolor{navy}{HTML}{0E213B}
-\tcbset{boxsep=2pt,left=4pt,right=4pt,top=3pt,bottom=3pt,arc=4pt}
-\newtcolorbox{pill}[1][]{colback=black,coltext=white,colframe=black,boxrule=0pt,arc=6pt,left=6pt,right=6pt,top=4pt,bottom=4pt,#1}
-\newtcolorbox{eqbox}[1][]{colback=white,colframe=navy,boxrule=.7pt,arc=4pt,#1}
-
+\input{style}
 
 % Metadata
-\title{Brokers and Atypical Technology}
-\subtitle{Network Position, Bridging, and Innovation in Patent Teams}
+\title{The Micro-Foundations of Innovation}
+\subtitle{Individual Inventor Brokerage and Atypical Recombination in Europe}
 
-\author[Bruinsma, Virág]{
-    \Large Patrick Bruinsma\inst{1} \and Ákos Virág\inst{2}
+\author[Bruinsma \& Virág]{
+        \Large Patrik Bruinsma\inst{1} \and Ákos Virág\inst{1}
 }
 
-\institute[Corvinus University]{
-  \vspace{0.5cm}
-  \inst{1}Department of Innovation Studies,
-  
-  \inst{2}Department of Data Science
-  
+\institute[Corvinus University of Budapest]{
+    \inst{1}Social Data Science MSc., Corvinus University of Budapest\\[0.2cm]
+    \large Supervisor: Balázs Lengyel
 }
 
-\date[\today]{\today}
+\date[Conference presentation]{April 2026}
 
-\subject{Brokers, Atypicality, Patents}
+\subject{Innovation, brokerage, atypical recombination}
 
-\keywords{innovation, network position, atypical technology}
+\keywords{innovation, brokerage, atypical recombination, patents}
 
 \begin{document}
 
-% Title slide
 \begin{frame}
     \titlepage 
 \end{frame}
-
-% ToC
-\begin{frame}
-    \tableofcontents
-\end{frame}
-
-
-% ===== INTRODUCTION =====
+ 
 \section{Introduction}
-\subsection{Research Question}
 \input{frames/01_intro/intro}
 
-% ===== DATA =====
 \section{Data}
-\subsection{Patent Data and Sample}
 \input{frames/02_data/data_sources}
-\subsection{Key Variables}
 \input{frames/02_data/variables}
 
-% ===== METHODOLOGY =====
-\section{Methodology}
-
-\subsection{Method 1: Atypicality Measurement}
+\section{Empirical Strategy}
 \input{frames/03_methods/method1}
-
-\subsection{Method 2: Brokerage Analysis}
 \input{frames/03_methods/method2}
 
-\subsection{Method 3: Integration and Robustness}
-\input{frames/03_methods/method3}
-
-% ===== RESULTS =====
 \section{Results}
-
-\subsection{Main Results}
 \input{frames/04_results/main_results}
-
-\subsection{Comparative Analysis}
 \input{frames/04_results/comparison}
-
-\subsection{Robustness Checks}
 \input{frames/04_results/robustness}
 
-% ===== DISCUSSION =====
-\section{Discussion and Conclusions}
-
-\subsection{Key Findings}
+\section{Interpretation}
 \input{frames/06_discussion/findings}
-
-\subsection{Implications}
 \input{frames/06_discussion/implications}
 
-\subsection{Conclusion}
+\section{Conclusion}
 \input{frames/05_conclusion/conclusion}
 
-% ===== BACKUP SLIDES =====
 \appendix
 \section{Appendix}
-\subsection{Backup Slides}
 \input{frames/07_backup/backup}
 
 \end{document}

@@ -1,35 +1,11 @@
-\begin{frame}[fragile]{Comparison with Alternative Specifications}
-    \textbf{Network Measures:}
-    \begin{itemize}
-        \item Degree (simple connectivity)
-        \item Effective size (non-redundant ties)
-        \item Constraint (redundancy of neighborhood)
-        \item Betweenness (global brokerage)
-    \end{itemize}
-    
-    \vspace{0.3cm}
-    
-    \begin{eqbox}
-        Brokerage-based measures (betweenness, constraint) consistently outpredict simple degree measures
-    \end{eqbox}
-    
-    \vspace{0.3cm}
-    
-    \textbf{Implication:} It's not just \textit{how many} connections, but \textit{where} they are positioned
-\end{frame}
+\begin{frame}{The result survives alternative network definitions}
+\begin{figure}
+    \centering
+    \includegraphics[height=0.56\textheight,keepaspectratio]{imgs/results/figure4_network_variants.pdf}
+\end{figure}
+\slidesource{authors' robustness pipeline}
 
-\begin{frame}[fragile]{Time Dynamics}
-    \textbf{Do Current or Lagged Network Positions Matter?}
-    
-    \begin{itemize}
-        \item Current-period brokerage $\Rightarrow$ current period atypicality
-        \item Prior-period brokerage $\Rightarrow$ current period atypicality
-        \item Decay of effect over time
-    \end{itemize}
-    
-    \vspace{0.3cm}
-    
-    \begin{eqbox}
-        Network position effects are relatively immediate (consistent with knowledge from current collaborators)
-    \end{eqbox}
+\begin{eqbox}
+At the preferred $Z<-2$ threshold, the coefficient is 0.0537 in the full network, 0.0472 in the interfirm-only network, and 0.0237 when intrafirm ties are aggressively downweighted to $w=0.1$.
+\end{eqbox}
 \end{frame}

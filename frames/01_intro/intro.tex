@@ -1,35 +1,116 @@
-\begin{frame}[fragile]{Introduction}
-    \begin{itemize}
-        \item Innovation drives economic growth and competitiveness
-        \item Most patents are incremental; some are \textbf{breakthrough inventions}
-        \item Key question: \textit{Who produces atypical (novel) inventions and under what conditions?}
-    \end{itemize}
+\begin{frame}{Why this question matters}
+\centering
+\scalebox{0.57}{
+\begin{tikzpicture}[every node/.style={font=\bfseries,inner sep=2pt}]
+
+\node[circle,draw=structure.fg,fill=structure.fg,text=white,
+      minimum size=2.8cm,align=center] (core) {Atypical\\invention};
+
+\node[circle,draw=structure.fg,fill=BerlinLight,text=structure.fg,
+      minimum size=2.25cm,align=center,above left=1.9cm and 2.0cm of core] (holes) {Structural\\holes};
+
+\node[circle,draw=structure.fg,fill=BerlinLight,text=structure.fg,
+      minimum size=2.25cm,align=center,above right=1.9cm and 2.0cm of core] (knowledge) {Distant\\knowledge};
+
+\node[circle,draw=structure.fg,fill=BerlinLight,text=structure.fg,
+      minimum size=2.25cm,align=center,below left=1.9cm and 2.0cm of core] (firms) {Firm\\boundaries};
+
+\node[circle,draw=structure.fg,fill=BerlinLight,text=structure.fg,
+      minimum size=2.25cm,align=center,below right=1.9cm and 2.0cm of core] (regions) {Regional\\variety};
+
+\draw[structure.fg,thick] (core) -- (holes);
+\draw[structure.fg,thick] (core) -- (knowledge);
+\draw[structure.fg,thick] (core) -- (firms);
+\draw[structure.fg,thick] (core) -- (regions);
+
+\node[
+    fill=structure.fg,text=white,
+    minimum width=8.2cm,minimum height=0.9cm,
+    align=center,right=2.0cm of knowledge
+] (rtitle) {Why should we care?};
+
+\node[
+    draw=structure.fg,fill=white,text=structure.fg,
+    minimum width=3cm,minimum height=1.8cm,
+    below=2.0cm of rtitle.west,anchor=west,align=center
+] (theory) {Theory};
+
+\node[
+    fill=BerlinLight,text=structure.fg,
+    minimum width=4.6cm,minimum height=0.8cm,
+    align=center,
+    anchor=north west
+] (t1) at ([xshift=0.45cm]theory.north east) {Who creates radical novelty?};
+
+\node[
+    fill=BerlinLight,text=structure.fg,
+    minimum width=4.6cm,minimum height=0.8cm,
+    align=center,
+    below=0.2cm of t1
+] (t2) {Micro-foundations of regional patterns};
+
+\node[
+    draw=structure.fg,fill=white,text=structure.fg,
+    minimum width=3cm,minimum height=1.8cm,
+    below=2.25cm of theory.west,anchor=west,align=center
+] (firmsb) {Firms};
+
+\node[
+    fill=BerlinLight,text=structure.fg,
+    minimum width=4.6cm,minimum height=0.8cm,
+    align=center,
+    anchor=north west
+] (t3) at ([xshift=0.45cm]firmsb.north east) {Should firms support brokers?};
+
+\node[
+    fill=BerlinLight,text=structure.fg,
+    minimum width=4.6cm,minimum height=0.8cm,
+    align=center,
+    below=0.2cm of t3
+] (t4) {Are cross-firm ties special?};
+
+\node[
+    draw=structure.fg,fill=white,text=structure.fg,
+    minimum width=3cm,minimum height=1.8cm,
+    below=2.25cm of firmsb.west,anchor=west,align=center
+] (policy) {Regions};
+
+\node[
+    fill=BerlinLight,text=structure.fg,
+    minimum width=4.6cm,minimum height=0.8cm,
+    align=center,
+    anchor=north west
+] (t5) at ([xshift=0.45cm]policy.north east) {Which ecosystems reward brokerage?};
+
+\node[
+    fill=BerlinLight,text=structure.fg,
+    minimum width=4.6cm,minimum height=0.8cm,
+    align=center,
+    below=0.2cm of t5
+] (t6) {How does context shape recombination?};
+
+\end{tikzpicture}}
 \end{frame}
 
-\begin{frame}[fragile]{Research Question}
-    \begin{center}
-        {\Large Do inventors in \textbf{brokerage positions} (bridging disconnected clusters in collaboration networks) produce more \textbf{atypical patents}?}
-    \end{center}
-    
-    \vspace{1cm}
-    
-    \begin{itemize}
-        \item Brokerage provides access to diverse, non-redundant knowledge
-        \item Atypicality measured via combinatorial rarity of technology classes
-        \item Investigation at the \textit{individual inventor} level (micro-foundation of regional patterns)
-    \end{itemize}
-\end{frame}
+\begin{frame}{The conference takeaway in one view}
+\small
+\begin{columns}[T,onlytextwidth]
+\column{0.32\textwidth}
+\begin{softbox}[title=Question]
+Do brokers generate more \textbf{atypical combinations} than inventors in denser neighborhoods?
+\end{softbox}
 
-\begin{frame}[fragile]{Theoretical Foundation}
-    \begin{itemize}
-        \item \textbf{Structural Holes (Burt):} Individuals bridging disconnected clusters access more diverse information
-        \item \textbf{Atypical Innovation (Uzzi):} Statistical rarity of technology class pairings indicates genuinely novel combinations
-        \item \textbf{Co-inventor Networks:} Collaboration maps relational structure and tacit knowledge exchange
-    \end{itemize}
-    
-    \vspace{0.5cm}
-    
-    \begin{eqbox}
-        \textbf{Hypothesis:} Inventors with higher brokerage positions produce more atypical patents
-    \end{eqbox}
+\column{0.32\textwidth}
+\begin{softbox}[title=Setting]
+European patenting, 1984--2023, inventor panel with time-varying co-inventor networks.
+\end{softbox}
+
+\column{0.32\textwidth}
+\begin{softbox}[title=Payoff]
+We test whether \textbf{firms} and \textbf{regions} shape the brokerage effect.
+\end{softbox}
+\end{columns}
+
+\vspace{0.45cm}
+\takeaway{Hypothesis: more brokerage should increase the probability of an atypical patent because brokers see non-redundant knowledge.}
 \end{frame}

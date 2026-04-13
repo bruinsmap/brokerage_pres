@@ -1,0 +1,64 @@
+\usetheme{Berlin}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{svg}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{makecell}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usetikzlibrary{positioning,arrows.meta,fit,shapes.geometric}
+
+% ===== central style controls for future recoloring =====
+\definecolor{BerlinLight}{RGB}{200,220,240}
+\definecolor{navy}{HTML}{0E213B}
+\definecolor{accent}{HTML}{4B7FAD}
+\definecolor{softbg}{RGB}{244,247,250}
+\definecolor{softline}{RGB}{191,205,219}
+\definecolor{highlight}{HTML}{133C55}
+\definecolor{warninggold}{HTML}{C98A00}
+
+\setbeamercolor{structure}{fg=navy}
+\setbeamercolor{frametitle}{fg=white,bg=navy}
+\setbeamercolor{title}{fg=navy}
+\setbeamercolor{subtitle}{fg=navy}
+\setbeamercolor{block title}{fg=white,bg=navy}
+\setbeamercolor{block body}{fg=black,bg=softbg}
+\setbeamercolor{section in toc}{fg=navy}
+\setbeamercolor{subsection in toc}{fg=accent}
+
+\setbeamerfont{title}{series=\bfseries,size=\LARGE}
+\setbeamerfont{subtitle}{size=\large}
+\setbeamerfont{frametitle}{series=\bfseries,size=\large}
+
+\tcbset{boxsep=2pt,left=5pt,right=5pt,top=4pt,bottom=4pt,arc=5pt}
+\newtcolorbox{pill}[1][]{colback=navy,coltext=white,colframe=navy,boxrule=0pt,arc=7pt,left=8pt,right=8pt,top=4pt,bottom=4pt,#1}
+\newtcolorbox{eqbox}[1][]{colback=white,colframe=navy,boxrule=.8pt,arc=4pt,left=8pt,right=8pt,top=6pt,bottom=6pt,#1}
+\newtcolorbox{softbox}[1][]{colback=softbg,colframe=softline,boxrule=.8pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,#1}
+\newtcolorbox{accentbox}[1][]{colback=BerlinLight!55,colframe=accent,boxrule=.8pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,#1}
+
+\newcommand{\takeaway}[1]{%
+  \begin{beamercolorbox}[sep=8pt,rounded=true,shadow=true,center]{block body}
+  \textbf{#1}
+  \end{beamercolorbox}%
+}
+
+\newcommand{\slidesource}[1]{%
+  \vspace{0.15cm}
+  {\raggedleft\scriptsize\textit{Source: #1}\par}%
+}
+
+\newcommand{\orchange}[1]{%
+  \pgfmathparse{(exp(#1)-1)*100}%
+  \pgfmathprintnumber[fixed,precision=1]{\pgfmathresult}\%%
+}
