@@ -56,26 +56,6 @@
 \setbeamerfont{frametitle}{series=\bfseries,size=\large}
 \setbeamerfont{block title}{series=\bfseries}
 
-\setbeamertemplate{title page}{%
-  \vbox{}
-  \vfill
-  \begin{beamercolorbox}[wd=\paperwidth,leftskip=0.09\paperwidth,rightskip=0.09\paperwidth,sep=0pt]{title}
-    \begin{tcolorbox}[colback=navy,colframe=navy,boxrule=0pt,arc=6pt,left=14pt,right=14pt,top=14pt,bottom=14pt]
-      {\color{white}\usebeamerfont{title}\inserttitle\par}
-      \vspace{0.25cm}
-      {\color{white}\usebeamerfont{subtitle}\insertsubtitle\par}
-    \end{tcolorbox}
-    \vspace{0.6cm}
-    \centering
-    {\Large \insertauthor\par}
-    \vspace{0.25cm}
-    {\normalsize \insertinstitute\par}
-    \vspace{0.25cm}
-    {\normalsize\color{accent} \insertdate\par}
-  \end{beamercolorbox}
-  \vfill
-}
-
 \tcbset{boxsep=2pt,left=5pt,right=5pt,top=4pt,bottom=4pt,arc=5pt}
 \newtcolorbox{pill}[1][]{colback=navy,coltext=white,colframe=navy,boxrule=0pt,arc=7pt,left=8pt,right=8pt,top=4pt,bottom=4pt,fontupper=\bfseries,#1}
 \newtcolorbox{eqbox}[1][]{colback=eqbg,colframe=accent,boxrule=1.2pt,arc=4pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,#1}
