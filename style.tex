@@ -25,13 +25,15 @@
 \definecolor{BerlinLight}{RGB}{223,235,246}
 \definecolor{navy}{HTML}{15324B}
 \definecolor{accent}{HTML}{2E6F95}
-\definecolor{softbg}{RGB}{228,235,243}
-\definecolor{softline}{RGB}{170,190,210}
+\definecolor{softbg}{RGB}{240,240,242}
+\definecolor{softline}{RGB}{190,192,200}
 \definecolor{highlight}{HTML}{0E4D64}
 \definecolor{warninggold}{HTML}{C98A00}
 \definecolor{textdark}{HTML}{1E2933}
 \definecolor{muted}{HTML}{5B6770}
-\definecolor{whiteblue}{RGB}{235,243,250}
+\definecolor{eqbg}{RGB}{213,232,252}
+\definecolor{accentbg}{RGB}{255,243,220}
+\definecolor{accentborder}{RGB}{210,170,70}
 
 \setbeamercolor{normal text}{fg=textdark,bg=white}
 \setbeamercolor{structure}{fg=accent}
@@ -75,10 +77,10 @@
 
 \tcbset{boxsep=2pt,left=5pt,right=5pt,top=4pt,bottom=4pt,arc=5pt}
 \newtcolorbox{pill}[1][]{colback=navy,coltext=white,colframe=navy,boxrule=0pt,arc=7pt,left=8pt,right=8pt,top=4pt,bottom=4pt,fontupper=\bfseries,#1}
-\newtcolorbox{eqbox}[1][]{colback=whiteblue,colframe=accent,boxrule=1.2pt,arc=4pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,#1}
+\newtcolorbox{eqbox}[1][]{colback=eqbg,colframe=accent,boxrule=1.2pt,arc=4pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,#1}
 \newtcolorbox{softbox}[1][]{colback=softbg,colframe=softline,boxrule=1.0pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,fonttitle=\bfseries,coltitle=navy,#1}
-\newtcolorbox{accentbox}[1][]{colback=BerlinLight!70,colframe=accent,boxrule=1.2pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,fonttitle=\bfseries,coltitle=navy,#1}
-\newtcolorbox{statbox}[1][]{colback=softbg,colframe=navy,boxrule=1.2pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,fonttitle=\bfseries,coltitle=navy,#1}
+\newtcolorbox{accentbox}[1][]{colback=accentbg,colframe=accentborder,boxrule=1.2pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,fonttitle=\bfseries,coltitle=textdark,#1}
+\newtcolorbox{statbox}[1][]{colback=white,colframe=navy,boxrule=1.4pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,fonttitle=\bfseries,coltitle=navy,#1}
 
 \newcommand{\takeaway}[1]{%
   \begin{beamercolorbox}[sep=8pt,rounded=true,shadow=false,center]{block body}
