@@ -1,32 +1,26 @@
 \begin{frame}{Data architecture}
-\small
+\footnotesize
 \begin{columns}[T,onlytextwidth]
-\column{0.59\textwidth}
+\column{0.57\textwidth}
 \begin{softbox}[title=What goes into the panel?]
-\begin{tabular}{p{0.52\linewidth}p{0.38\linewidth}}
-Patent applications with inventor and CPC information & EPO PATSTAT, April 2024 \\
-EU-28 inventors assigned to NUTS2 regions & 1984--2023 \\
-Network sample: patents with at least two inventors & 5,452,904 inventor-window observations \\
-Estimation sample: patents with at least two CPC codes & 2,459,067 inventor-window observations \\
-\end{tabular}
+{\scriptsize
+\begin{tabular}{@{}p{0.46\linewidth}p{0.40\linewidth}@{}}
+Patent applications with inventor \& CPC info & EPO PATSTAT, Apr.~2024 \\
+EU-28 inventors, NUTS2 & 1984--2023 \\
+Network ($\geq$2 inv.) & 5.45M obs. \\
+Estimation ($\geq$2 CPC) & 2.46M obs. \\
+\end{tabular}}
 \end{softbox}
-
-\vspace{0.2cm}
 \begin{accentbox}[title=Why five-year windows?]
-They are long enough to estimate collaboration structure reliably, but still short enough to let network positions and inventive outcomes move over time.
+Long enough for reliable network estimation; short enough for positions and outcomes to vary over time.
 \end{accentbox}
 
-\column{0.37\textwidth}
+\column{0.39\textwidth}
 \begin{statbox}[title=What the sample buys us]
-\textbf{Scale:} Europe-wide coverage\\[0.12cm]
-\textbf{Unit:} inventor-window observations\\[0.12cm]
-\textbf{Advantage:} we can compare inventors within the same historical context rather than only across regions.
+\textbf{Scale:} Europe-wide coverage\\[0.06cm]
+\textbf{Unit:} inventor-window obs.\\[0.06cm]
+\textbf{Advantage:} compare inventors within the same historical context.
 \end{statbox}
-
-\vspace{0.22cm}
-\begin{softbox}[title=Interpretation note]
-The smaller final window partly reflects publication lag, not an abrupt collapse in inventive activity.
-\end{softbox}
 \end{columns}
 \end{frame}
 
@@ -34,11 +28,11 @@ The smaller final window partly reflects publication lag, not an abrupt collapse
 \small
 \begin{columns}[T,onlytextwidth]
 \column{0.58\textwidth}
-\begin{tikzpicture}[node distance=0.35cm and 0.45cm, every node/.style={align=center,font=\small\bfseries}]
-\node[draw=navy,fill=BerlinLight,text=textdark,minimum width=6.0cm,minimum height=0.8cm] (s1) {Patent records + inventor addresses};
-\node[draw=accent,fill=white,text=textdark,minimum width=6.0cm,minimum height=0.8cm,below=of s1] (s2) {NUTS2 matching + time windows};
-\node[draw=navy,fill=BerlinLight,text=textdark,minimum width=6.0cm,minimum height=0.8cm,below=of s2] (s3) {Co-inventor network construction};
-\node[draw=accent,fill=white,text=textdark,minimum width=6.0cm,minimum height=0.8cm,below=of s3] (s4) {Brokerage + atypicality merge};
+\begin{tikzpicture}[node distance=0.3cm and 0.45cm, every node/.style={align=center,font=\small\bfseries}]
+\node[draw=navy,fill=BerlinLight,text=textdark,minimum width=5.8cm,minimum height=0.7cm] (s1) {Patent records + inventor addresses};
+\node[draw=accent,fill=white,text=textdark,minimum width=5.8cm,minimum height=0.7cm,below=of s1] (s2) {NUTS2 matching + time windows};
+\node[draw=navy,fill=BerlinLight,text=textdark,minimum width=5.8cm,minimum height=0.7cm,below=of s2] (s3) {Co-inventor network construction};
+\node[draw=accent,fill=white,text=textdark,minimum width=5.8cm,minimum height=0.7cm,below=of s3] (s4) {Brokerage + atypicality merge};
 \draw[-{Stealth[length=3mm]},thick,accent] (s1) -- (s2);
 \draw[-{Stealth[length=3mm]},thick,accent] (s2) -- (s3);
 \draw[-{Stealth[length=3mm]},thick,accent] (s3) -- (s4);
@@ -46,12 +40,12 @@ The smaller final window partly reflects publication lag, not an abrupt collapse
 
 \column{0.38\textwidth}
 \begin{softbox}[title=Why this is persuasive]
-The panel follows inventors through changing collaboration neighborhoods instead of collapsing the analysis to region-level averages.
+The panel follows inventors through changing collaboration neighborhoods---not region-level averages.
 \end{softbox}
 
-\vspace{0.2cm}
+\vspace{0.12cm}
 \begin{softbox}[title=Main limitation]
-We observe formal patent collaboration only, so the broader brokerage mechanism is likely understated.
+We observe formal patent collaboration only; broader brokerage is likely understated.
 \end{softbox}
 \end{columns}
 \end{frame}
