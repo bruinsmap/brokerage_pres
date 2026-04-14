@@ -1,52 +1,34 @@
 \begin{frame}{Baseline result: brokerage predicts atypical patents}
-\small
 \begin{figure}
     \centering
-    \includegraphics[height=0.33\textheight,keepaspectratio]{figure1_marginal_effects.pdf}
+    \includegraphics[height=0.50\textheight,keepaspectratio]{figure1_marginal_effects.png}
 \end{figure}
 \slidesource{authors' pipeline output based on EPO PATSTAT}
 
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\begin{softbox}[title=What to look at]
-All threshold-specific estimates remain positive, and the confidence intervals are tight enough to rule out a pooled null effect.
-\end{softbox}
-
-\column{0.48\textwidth}
-\begin{softbox}[title=Speaker note]
-The pooled effect is not huge, but it is too stable across thresholds and specifications to dismiss as noise.
-\end{softbox}
-\end{columns}
-
-\vspace{0.1cm}
 \begin{eqbox}
-Across thresholds, one standard-deviation more brokerage raises the odds of atypical patenting by roughly \textbf{5--6\%}. That is modest, but persistent at European scale.
+One SD more brokerage raises the odds of atypical patenting by \textbf{5--6\%} --- modest but \HL{persistent} across all thresholds.
 \end{eqbox}
 \end{frame}
 
-\begin{frame}{The core coefficients are economically modest, but consistently positive}
-\scriptsize
+\begin{frame}{Core coefficients: economically modest, consistently positive}
+\small
 \begin{columns}[T,onlytextwidth]
-\column{0.58\textwidth}
+\column{0.55\textwidth}
 \centering
 \begin{tabular}{lccc}
 \toprule
-Threshold & Logit coefficient & Odds change & Interpretation \\
+Threshold & Logit coef. & Odds $\Delta$ & Scope \\
 \midrule
-$Z<0$   & 0.0466$^{***}$ & +\orchange{0.0466} & broad atypicality \\
-$Z<-2$  & 0.0537$^{***}$ & +\orchange{0.0537} & preferred benchmark \\
-$Z<-5$  & 0.0582$^{***}$ & +\orchange{0.0582} & rarer combinations \\
-$Z<-14$ & 0.0541$^{***}$ & +\orchange{0.0541} & extreme rarity \\
+$Z<0$   & 0.0466$^{***}$ & +\orchange{0.0466} & broad \\
+$Z<-2$  & 0.0537$^{***}$ & +\orchange{0.0537} & benchmark \\
+$Z<-5$  & 0.0582$^{***}$ & +\orchange{0.0582} & rare \\
+$Z<-14$ & 0.0541$^{***}$ & +\orchange{0.0541} & extreme \\
 \bottomrule
 \end{tabular}
-\column{0.38\textwidth}
-\begin{softbox}[title=What does not happen]
-Brokerage does not transform the whole portfolio into exotic combinations.
-\end{softbox}
 
-\vspace{0.15cm}
-\begin{softbox}[title=What does happen]
-It raises the chance of crossing into atypical recombination at least once --- the core extensive-margin result.
+\column{0.42\textwidth}
+\begin{softbox}[title=Interpretation]
+Brokerage does not make the whole portfolio exotic --- it raises the chance of crossing into atypical recombination \textbf{at least once} (extensive margin).
 \end{softbox}
 \end{columns}
 \end{frame}
