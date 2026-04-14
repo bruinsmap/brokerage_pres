@@ -25,13 +25,13 @@
 \definecolor{BerlinLight}{RGB}{223,235,246}
 \definecolor{navy}{HTML}{15324B}
 \definecolor{accent}{HTML}{2E6F95}
-\definecolor{softbg}{RGB}{247,249,252}
-\definecolor{softline}{RGB}{202,214,226}
+\definecolor{softbg}{RGB}{228,235,243}
+\definecolor{softline}{RGB}{170,190,210}
 \definecolor{highlight}{HTML}{0E4D64}
 \definecolor{warninggold}{HTML}{C98A00}
 \definecolor{textdark}{HTML}{1E2933}
 \definecolor{muted}{HTML}{5B6770}
-\definecolor{whiteblue}{RGB}{252,253,255}
+\definecolor{whiteblue}{RGB}{235,243,250}
 
 \setbeamercolor{normal text}{fg=textdark,bg=white}
 \setbeamercolor{structure}{fg=accent}
@@ -62,7 +62,7 @@
     \vspace{0.3cm}
     {\usebeamerfont{subtitle}\insertsubtitle\par}
     \vspace{0.8cm}
-    \begin{tcolorbox}[colback=softbg,colframe=softline,boxrule=0.8pt,arc=4pt,left=8pt,right=8pt,top=8pt,bottom=8pt]
+    \begin{tcolorbox}[colback=softbg,colframe=softline,boxrule=1.0pt,arc=4pt,left=8pt,right=8pt,top=8pt,bottom=8pt]
       {\normalsize \insertauthor\par}
       \vspace{0.12cm}
       {\small \insertinstitute\par}
@@ -75,10 +75,10 @@
 
 \tcbset{boxsep=2pt,left=5pt,right=5pt,top=4pt,bottom=4pt,arc=5pt}
 \newtcolorbox{pill}[1][]{colback=navy,coltext=white,colframe=navy,boxrule=0pt,arc=7pt,left=8pt,right=8pt,top=4pt,bottom=4pt,fontupper=\bfseries,#1}
-\newtcolorbox{eqbox}[1][]{colback=whiteblue,colframe=accent,boxrule=.9pt,arc=4pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,#1}
-\newtcolorbox{softbox}[1][]{colback=softbg,colframe=softline,boxrule=.8pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,fonttitle=\bfseries,coltitle=navy,#1}
-\newtcolorbox{accentbox}[1][]{colback=BerlinLight!45,colframe=accent,boxrule=.9pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,fonttitle=\bfseries,coltitle=navy,#1}
-\newtcolorbox{statbox}[1][]{colback=white,colframe=navy,boxrule=.9pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,fonttitle=\bfseries,coltitle=navy,#1}
+\newtcolorbox{eqbox}[1][]{colback=whiteblue,colframe=accent,boxrule=1.2pt,arc=4pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,#1}
+\newtcolorbox{softbox}[1][]{colback=softbg,colframe=softline,boxrule=1.0pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,fonttitle=\bfseries,coltitle=navy,#1}
+\newtcolorbox{accentbox}[1][]{colback=BerlinLight!70,colframe=accent,boxrule=1.2pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,fonttitle=\bfseries,coltitle=navy,#1}
+\newtcolorbox{statbox}[1][]{colback=softbg,colframe=navy,boxrule=1.2pt,arc=5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,coltext=textdark,fonttitle=\bfseries,coltitle=navy,#1}
 
 \newcommand{\takeaway}[1]{%
   \begin{beamercolorbox}[sep=8pt,rounded=true,shadow=false,center]{block body}
@@ -101,3 +101,8 @@
   \pgfmathparse{(exp(#1)-1)*100}%
   \pgfmathprintnumber[fixed,precision=1]{\pgfmathresult}\%%
 }
+
+% ===== semantic inline color commands =====
+\newcommand{\pos}[1]{\textcolor{highlight}{\textbf{#1}}}
+\newcommand{\con}[1]{\textcolor{warninggold}{\textbf{#1}}}
+\newcommand{\HL}[1]{\textcolor{accent}{\textbf{#1}}}
