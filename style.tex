@@ -60,17 +60,18 @@
   \vbox{}
   \vfill
   \begin{beamercolorbox}[wd=\paperwidth,leftskip=0.09\paperwidth,rightskip=0.09\paperwidth,sep=0pt]{title}
-    {\usebeamerfont{title}\inserttitle\par}
-    \vspace{0.3cm}
-    {\usebeamerfont{subtitle}\insertsubtitle\par}
-    \vspace{0.8cm}
-    \begin{tcolorbox}[colback=softbg,colframe=softline,boxrule=1.0pt,arc=4pt,left=8pt,right=8pt,top=8pt,bottom=8pt]
-      {\normalsize \insertauthor\par}
-      \vspace{0.12cm}
-      {\small \insertinstitute\par}
-      \vspace{0.12cm}
-      {\small \insertdate\par}
+    \begin{tcolorbox}[colback=navy,colframe=navy,boxrule=0pt,arc=6pt,left=14pt,right=14pt,top=14pt,bottom=14pt]
+      {\color{white}\usebeamerfont{title}\inserttitle\par}
+      \vspace{0.25cm}
+      {\color{white}\usebeamerfont{subtitle}\insertsubtitle\par}
     \end{tcolorbox}
+    \vspace{0.6cm}
+    \centering
+    {\Large \insertauthor\par}
+    \vspace{0.25cm}
+    {\normalsize \insertinstitute\par}
+    \vspace{0.25cm}
+    {\normalsize\color{accent} \insertdate\par}
   \end{beamercolorbox}
   \vfill
 }
