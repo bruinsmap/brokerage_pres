@@ -3,18 +3,12 @@
 \footnotesize
 \begin{columns}[T,onlytextwidth]
 \column{0.57\textwidth}
-\begin{softbox}[title=What goes into the panel?]
-{\scriptsize
-\begin{tabular}{@{}p{0.46\linewidth}p{0.40\linewidth}@{}}
-Patent applications with inventor \& CPC info & EPO PATSTAT, Apr.~2024 \\
-EU-28 inventors, NUTS2 & 1984--2023 \\
-Network ($\geq$2 inv.) & 5.45M obs. \\
-Estimation ($\geq$2 CPC) & 2.46M obs. \\
-\end{tabular}}
-\end{softbox}
-\begin{accentbox}[title=Network Building]
-Exponential time-weighted network. Tie deletion and refresh.
-\end{accentbox}
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.7
+    \textheight,keepaspectratio]{figures/fig_ego_network.pdf}
+\end{figure}
 
 \column{0.39\textwidth}
 \begin{statbox}[title=What the sample buys us]
@@ -22,6 +16,11 @@ Exponential time-weighted network. Tie deletion and refresh.
 \textbf{Unit:} Growing inventor network.\\[0.06cm]
 \textbf{Advantage:} compare inventors within the same historical context.
 \end{statbox}
+
+\begin{accentbox}[title=Network Building]
+Exponential time-weighted network. \\ Tie deletion and refresh.
+\end{accentbox}
+
 \end{columns}
 \end{frame}
 
@@ -40,8 +39,8 @@ Exponential time-weighted network. Tie deletion and refresh.
 \end{tikzpicture}
 
 \column{0.38\textwidth}
-\begin{softbox}[title=Why this is persuasive]
-The panel follows inventors through changing collaboration neighborhoods---not region-level averages.
+\begin{softbox}[title=Inventor tracking]
+The panel follows inventors through changing collaboration neighborhoods, not region-level averages.
 \end{softbox}
 
 \vspace{0.12cm}
