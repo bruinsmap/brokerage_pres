@@ -4,13 +4,14 @@
 \begin{columns}[T,onlytextwidth]
 \column{0.48\textwidth}
 \begin{softbox}[title=Baseline design]
-Inventor-level panel regressions link brokerage in window $t$ to the probability that inventor $i$ produces an atypical patent in the same window.\\[0.15cm]
-Fixed effects absorb regional differences and common time shocks.
+Inventor-level panel regressions link brokerage in window $t$ to the count of atypical patents inventor $i$ produces in the same window (Poisson).\\[0.15cm]
+NUTS2 region and time-window fixed effects absorb regional differences and common time shocks.
 \end{softbox}
 
 \column{0.48\textwidth}
 \begin{softbox}[title=Controls and threats]
-Controls: degree, patenting intensity, inventor experience.\\[0.15cm]
+Controls: log degree, log component size, clustering coefficient, inter-firm tie share, log career patents, experience.\\[0.15cm]
+NUTS2 region and time-window fixed effects throughout.\\[0.15cm]
 Main threat: stronger inventors may self-select into brokerage positions.
 \end{softbox}
 \end{columns}
@@ -19,8 +20,8 @@ Main threat: stronger inventors may self-select into brokerage positions.
 
 \begin{eqbox}
 \[
-\text{Atypical}_{irt}=\beta\,\text{Brokerage}_{it}+\gamma X_{it}+\delta_r+\tau_t+\varepsilon_{irt}
+E[Y_{it}] = \exp\!\bigl(\beta\,\text{Brokerage}_{it} + \boldsymbol{\gamma}'\mathbf{X}_{it} + \delta_r + \tau_t\bigr)
 \]
-Main outcomes are logit models for binary atypicality thresholds.
+Main outcomes are Poisson count models for atypical patent counts.
 \end{eqbox}
 \end{frame}
