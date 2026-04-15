@@ -1,8 +1,6 @@
 % !TEX root = ../../main.tex
-\begin{frame}{The result survives alternative network definitions}
+\begin{frame}{Robustness to alternative network constructions}
 \begin{table}[H]
-    \caption{Robustness to alternative network constructions}
-    \label{tab:robustness_variants}
     \centering
     \adjustbox{max width=\textwidth}{%
     \begin{tabular}{lccccc}
@@ -28,9 +26,6 @@
        \bottomrule
     \end{tabular}
     }
-    \footnotesize
-    \newline
-    \textit{Notes:} All columns estimate Logit models with \textit{has\_atyp\_Z2} as the dependent variable. Column (1) is the baseline with $1/n$ intrafirm tie weighting. Column (2) excludes intrafirm ties entirely. Column (3) uses only intrafirm ties. Column (4) uses a fixed intrafirm weight of 0.9. Column (5) restricts to inventors with $\geq 3$ patents per window. NUTS2 and time-window fixed effects throughout. Standard errors (in parentheses) clustered at the NUTS2 level. $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$. \textit{Source:} Authors' calculations on EPO PATSTAT data.
 \end{table}
 
 \end{frame}
