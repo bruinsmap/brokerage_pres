@@ -2,13 +2,12 @@
 \begin{frame}{Baseline result: brokerage predicts atypical patents}
 \begin{figure}
     \centering
-    \includegraphics[height=0.50\textheight,keepaspectratio]{figure1_marginal_effects.png}
+    \includegraphics[height=0.70\textheight,keepaspectratio]{figure1_marginal_effects.png}
 \end{figure}
-\slidesource{authors' pipeline output based on EPO PATSTAT}
 
-\begin{eqbox}
-One SD more brokerage raises the odds of atypical patenting by \textbf{5--6\%} --- modest but \HL{persistent} across all thresholds.
-\end{eqbox}
+\begin{softbox}
+One SD more brokerage significantly raises the odds of atypical patenting by \textbf{5--6\%};  modest but \HL{persistent} across all thresholds.
+\end{softbox}
 \end{frame}
 
 \begin{frame}{Core coefficients: economically modest, consistently positive}
@@ -27,10 +26,19 @@ $Z<-5$  & 0.0582$^{***}$ & +\orchange{0.0582} & rare \\
 $Z<-14$ & 0.0541$^{***}$ & +\orchange{0.0541} & extreme \\
 \bottomrule
 \end{tabular}}
+\begin{figure}
+    \centering
+    \includegraphics[height=0.50\textheight,keepaspectratio]{figures/fig06_robustness_variants.png}
+\end{figure}
 
-\column{0.48\textwidth}
+\column{0.40\textwidth}
 \begin{softbox}[title=Interpretation]
 Brokerage does not make the whole portfolio exotic --- it raises the chance of crossing into atypical recombination \textbf{at least once} (extensive margin).
 \end{softbox}
+
+\begin{softbox}
+Network definition changes the \textbf{strength}, not the direction: at $Z<-2$, coeff.~= 0.054 (full), 0.047 (interfirm), 0.024 (downweighted intra).
+\end{softbox}
+
 \end{columns}
 \end{frame}
