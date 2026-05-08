@@ -73,7 +73,10 @@
 \setbeamertemplate{frametitle}{%
   \nointerlineskip%
   \begin{beamercolorbox}[wd=\paperwidth,ht=0.68cm,dp=0.10cm]{frametitle}%
-    \hspace{0.35cm}\vbox to 0.68cm{\vfil\usebeamerfont{frametitle}\insertframetitle\vfil}%
+    \hspace{0.35cm}%
+    \begin{minipage}[c][0.68cm]{\dimexpr\paperwidth-0.55cm\relax}%
+      \raggedright\usebeamerfont{frametitle}\insertframetitle%
+    \end{minipage}%
   \end{beamercolorbox}%
 }
 
