@@ -1,14 +1,23 @@
 % !TEX root = ../../main.tex
 \begin{frame}{Baseline result: brokerage predicts atypical patents}
-\begin{figure}
-    \centering
-    \includegraphics[height=0.50\textheight,keepaspectratio]{figure1_marginal_effects.png}
-\end{figure}
+\begin{columns}[T,onlytextwidth]
+\column{0.60\textwidth}
+\centering
+\includegraphics[height=0.62\textheight,keepaspectratio]{figure1_marginal_effects.png}
 \slidesource{authors' pipeline output based on EPO PATSTAT}
 
-\begin{eqbox}
-One SD more brokerage raises the odds of atypical patenting by \textbf{5--6\%} --- modest but \HL{persistent} across all thresholds.
-\end{eqbox}
+\column{0.37\textwidth}
+\vspace{0.4cm}
+\begin{bignum}
+\centering
+{\LARGE\bfseries\color{navy} 5--6\%}\\[0.12cm]
+{\footnotesize odds increase\\per 1 SD brokerage}
+\end{bignum}
+\vspace{0.25cm}
+\begin{softbox}[title=Key finding]
+\pos{Persistent} across all four atypicality thresholds ($Z<0$, $Z<-2$, $Z<-5$, $Z<-14$)
+\end{softbox}
+\end{columns}
 \end{frame}
 
 \begin{frame}{Core coefficients: economically modest, consistently positive}

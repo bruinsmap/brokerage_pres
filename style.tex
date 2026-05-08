@@ -1,11 +1,15 @@
-\usetheme{Berlin}
+% ===== THEME =====
+\usetheme{default}
+\useinnertheme{rounded}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{blocks}[rounded][shadow=false]
 
+% ===== PACKAGES =====
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{lmodern}
 \usepackage{svg}
 \usepackage{graphicx}
 \usepackage{adjustbox}
@@ -22,52 +26,167 @@
 \usepackage{tcolorbox}
 \usetikzlibrary{positioning,arrows.meta,fit,shapes.geometric}
 
-% ===== central style controls for future recoloring =====
-\definecolor{BerlinLight}{RGB}{223,235,246}
+% ===== COLOR PALETTE =====
 \definecolor{navy}{HTML}{15324B}
 \definecolor{accent}{HTML}{2E6F95}
-\definecolor{softbg}{RGB}{240,240,242}
-\definecolor{softline}{RGB}{190,192,200}
+\definecolor{midblue}{HTML}{4A8AB0}
+\definecolor{softbg}{RGB}{241,243,247}
+\definecolor{softline}{RGB}{185,193,208}
 \definecolor{highlight}{HTML}{0E4D64}
 \definecolor{warninggold}{HTML}{C98A00}
 \definecolor{textdark}{HTML}{1E2933}
 \definecolor{muted}{HTML}{5B6770}
-\definecolor{eqbg}{RGB}{213,232,252}
-\definecolor{accentbg}{RGB}{255,243,220}
-\definecolor{accentborder}{RGB}{210,170,70}
+\definecolor{eqbg}{RGB}{215,232,252}
+\definecolor{accentbg}{RGB}{255,244,218}
+\definecolor{accentborder}{RGB}{200,162,50}
+\definecolor{footerbg}{RGB}{234,238,244}
 
+% ===== BEAMER COLORS =====
 \setbeamercolor{normal text}{fg=textdark,bg=white}
 \setbeamercolor{structure}{fg=accent}
 \setbeamercolor{frametitle}{fg=white,bg=navy}
-\setbeamercolor{title}{fg=white}
-\setbeamercolor{subtitle}{fg=white}
+\setbeamercolor{frametitle bar}{fg=white,bg=accent}
+\setbeamercolor{title}{fg=white,bg=navy}
+\setbeamercolor{subtitle}{fg=white!85!navy}
 \setbeamercolor{author}{fg=textdark}
 \setbeamercolor{date}{fg=muted}
 \setbeamercolor{block title}{fg=white,bg=navy}
 \setbeamercolor{block body}{fg=textdark,bg=softbg}
-\setbeamercolor{section in head/foot}{fg=white,bg=accent}
-\setbeamercolor{subsection in head/foot}{fg=white,bg=navy}
+\setbeamercolor{section in head/foot}{fg=muted,bg=footerbg}
+\setbeamercolor{page number in head/foot}{fg=muted,bg=footerbg}
 \setbeamercolor{section in toc}{fg=navy}
 \setbeamercolor{subsection in toc}{fg=accent}
 \setbeamercolor{item}{fg=accent}
 \setbeamercolor{alerted text}{fg=highlight}
 
+% ===== FONTS =====
 \setbeamerfont{title}{series=\bfseries,size=\LARGE}
-\setbeamerfont{subtitle}{size=\large}
+\setbeamerfont{subtitle}{size=\large,series=\mdseries}
 \setbeamerfont{frametitle}{series=\bfseries,size=\large}
 \setbeamerfont{block title}{series=\bfseries}
 
-\tcbset{boxsep=2pt,left=5pt,right=5pt,top=4pt,bottom=4pt,arc=5pt}
-\newtcolorbox{pill}[1][]{colback=navy,coltext=white,colframe=navy,boxrule=0pt,arc=7pt,left=8pt,right=8pt,top=4pt,bottom=4pt,fontupper=\bfseries,#1}
-\newtcolorbox{eqbox}[1][]{colback=eqbg,colframe=accent,boxrule=1.2pt,arc=4pt,left=6pt,right=6pt,top=4pt,bottom=4pt,coltext=textdark,#1}
-\newtcolorbox{softbox}[1][]{colback=softbg,colframe=softline,boxrule=1.0pt,arc=5pt,left=6pt,right=6pt,top=4pt,bottom=4pt,coltext=textdark,fonttitle=\bfseries,coltitle=navy,#1}
-\newtcolorbox{accentbox}[1][]{colback=accentbg,colframe=accentborder,boxrule=1.2pt,arc=5pt,left=6pt,right=6pt,top=4pt,bottom=4pt,coltext=textdark,fonttitle=\bfseries,coltitle=textdark,#1}
-\newtcolorbox{statbox}[1][]{colback=eqbg,colframe=navy,boxrule=1.4pt,arc=5pt,left=6pt,right=6pt,top=4pt,bottom=4pt,coltext=textdark,fonttitle=\bfseries,coltitle=white,title filled=true,colbacktitle=navy,#1}
+% ===== CUSTOM FRAMETITLE: navy band + accent left stripe =====
+\makeatletter
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip%
+  \@tempdima=\paperwidth
+  \advance\@tempdima by -0.28cm
+  \hbox{%
+    \begin{beamercolorbox}[wd=0.28cm,ht=0.72cm,dp=0.10cm]{frametitle bar}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=\@tempdima,ht=0.72cm,dp=0.10cm,%
+      leftskip=0.28cm,rightskip=0.20cm]{frametitle}%
+      \vbox to 0.72cm{\vfil\usebeamerfont{frametitle}\insertframetitle\vfil}%
+    \end{beamercolorbox}%
+  }%
+}
+\makeatother
+
+% ===== HEADLINE: none =====
+\setbeamertemplate{headline}{}
+
+% ===== FOOTLINE: section name + page/total =====
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=0.65\paperwidth,ht=0.28cm,dp=0.15cm,leftskip=0.40cm]{section in head/foot}%
+      \scriptsize\color{muted}\insertsectionhead%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=0.35\paperwidth,ht=0.28cm,dp=0.15cm,rightskip=0.40cm]{page number in head/foot}%
+      \hfill\scriptsize\color{muted}\insertframenumber\,/\,\inserttotalframenumber%
+    \end{beamercolorbox}%
+  }%
+}
+
+% ===== TITLE PAGE =====
+\setbeamertemplate{title page}{%
+  \nointerlineskip%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=3.80cm,dp=0cm,center]{title}%
+      \vbox to 3.80cm{\vfil%
+        {\usebeamerfont{title}\color{white}\inserttitle}\\[0.25cm]%
+        {\usebeamerfont{subtitle}\color{white!80!navy}\insertsubtitle}%
+      \vfil}%
+    \end{beamercolorbox}%
+  }%
+  \nointerlineskip%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=0.22cm,dp=0cm]{frametitle bar}%
+    \end{beamercolorbox}%
+  }%
+  \vspace{0.40cm}%
+  \begin{beamercolorbox}[wd=\textwidth,sep=4pt,center]{author}%
+    \usebeamerfont{author}\insertauthor%
+  \end{beamercolorbox}%
+  \vspace{0.10cm}%
+  \begin{beamercolorbox}[wd=\textwidth,sep=4pt,center]{institute}%
+    \small\insertinstitute%
+  \end{beamercolorbox}%
+  \vspace{0.08cm}%
+  \begin{beamercolorbox}[wd=\textwidth,sep=4pt,center]{date}%
+    \usebeamerfont{date}\insertdate%
+  \end{beamercolorbox}%
+}
+
+% ===== TCOLORBOX TOOLKIT =====
+\tcbset{boxsep=2pt,left=6pt,right=6pt,top=4pt,bottom=4pt,arc=5pt}
+
+\newtcolorbox{pill}[1][]{%
+  colback=navy,coltext=white,colframe=navy,
+  boxrule=0pt,arc=7pt,left=8pt,right=8pt,top=3pt,bottom=3pt,
+  fontupper=\bfseries,#1}
+
+\newtcolorbox{eqbox}[1][]{%
+  colback=eqbg,colframe=accent,boxrule=1.2pt,arc=4pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,coltext=textdark,#1}
+
+\newtcolorbox{softbox}[1][]{%
+  colback=softbg,colframe=softline,boxrule=0.9pt,arc=5pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,coltext=textdark,
+  fonttitle=\bfseries,coltitle=navy,#1}
+
+\newtcolorbox{accentbox}[1][]{%
+  colback=accentbg,colframe=accentborder,boxrule=1.2pt,arc=5pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,coltext=textdark,
+  fonttitle=\bfseries,coltitle=textdark,#1}
+
+\newtcolorbox{statbox}[1][]{%
+  colback=eqbg,colframe=navy,boxrule=1.4pt,arc=5pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,
+  coltext=textdark,fonttitle=\bfseries,coltitle=white,
+  title filled=true,colbacktitle=navy,#1}
+
+% ghostquote: elegant left-border quote block
+\newtcolorbox{ghostquote}[1][]{%
+  colback=white,colframe=accent,
+  boxrule=0pt,leftrule=3pt,
+  arc=0pt,outer arc=0pt,
+  left=10pt,right=6pt,top=2pt,bottom=2pt,
+  coltext=muted,fontupper=\itshape\small,#1}
+
+% bignum: large numerical callout card
+\newtcolorbox{bignum}[1][]{%
+  colback=eqbg,colframe=midblue,boxrule=1.4pt,arc=6pt,
+  left=8pt,right=8pt,top=6pt,bottom=6pt,
+  coltext=navy,#1}
+
+% ===== SEMANTIC COMMANDS =====
+\newcommand{\pos}[1]{\textcolor{highlight}{\textbf{#1}}}
+\newcommand{\con}[1]{\textcolor{warninggold}{\textbf{#1}}}
+\newcommand{\HL}[1]{\textcolor{accent}{\textbf{#1}}}
+
+% stepchip: navy badge with number, for labeling steps (colorbox to work in titles)
+\newcommand{\stepchip}[1]{%
+  {\setlength\fboxsep{2.5pt}\colorbox{navy}{\color{white}\bfseries\scriptsize~#1~}}%
+}
 
 \newcommand{\takeaway}[1]{%
-  \begin{beamercolorbox}[sep=8pt,rounded=true,shadow=false,center]{block body}
-  \textbf{#1}
-  \end{beamercolorbox}%
+  \begin{tcolorbox}[%
+    colback=navy!8,colframe=navy,boxrule=1.2pt,arc=5pt,%
+    left=8pt,right=8pt,top=5pt,bottom=5pt,%
+    coltext=navy,fontupper=\bfseries\footnotesize]%
+    #1%
+  \end{tcolorbox}%
 }
 
 \newcommand{\insight}[2]{%
@@ -77,16 +196,11 @@
 }
 
 \newcommand{\slidesource}[1]{%
-  \vspace{0.15cm}
-  {\raggedleft\scriptsize\textit{Source: #1}\par}%
+  \vspace{0.12cm}%
+  {\raggedleft\scriptsize\color{muted}\textit{Source: #1}\par}%
 }
 
 \newcommand{\orchange}[1]{%
   \pgfmathparse{(exp(#1)-1)*100}%
   \pgfmathprintnumber[fixed,precision=1]{\pgfmathresult}\%%
 }
-
-% ===== semantic inline color commands =====
-\newcommand{\pos}[1]{\textcolor{highlight}{\textbf{#1}}}
-\newcommand{\con}[1]{\textcolor{warninggold}{\textbf{#1}}}
-\newcommand{\HL}[1]{\textcolor{accent}{\textbf{#1}}}
