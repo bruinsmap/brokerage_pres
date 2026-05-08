@@ -13,7 +13,7 @@
 \usepackage{svg}
 \usepackage{graphicx}
 \usepackage{adjustbox}
-\graphicspath{{imgs/}{imgs/results/}{imgs/branding/}{presentation/imgs/}{presentation/imgs/results/}{presentation/imgs/branding/}}
+\graphicspath{{imgs/}{imgs/results/}{imgs/branding/}{presentation/imgs/}{presentation/imgs/results/}{presentation/imgs/branding/}{../}{../figures/}{figures/}}
 \usepackage{tikz}
 \usepackage{makecell}
 \usepackage{booktabs}
@@ -22,37 +22,40 @@
 \usepackage{tabularx}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{float}
 \usepackage{xcolor}
 \usepackage{tcolorbox}
 \usetikzlibrary{positioning,arrows.meta,fit,shapes.geometric}
 
 % ===== COLOR PALETTE =====
-\definecolor{navy}{HTML}{15324B}
-\definecolor{accent}{HTML}{2E6F95}
-\definecolor{midblue}{HTML}{4A8AB0}
-\definecolor{softbg}{RGB}{241,243,247}
-\definecolor{softline}{RGB}{185,193,208}
-\definecolor{highlight}{HTML}{0E4D64}
-\definecolor{warninggold}{HTML}{C98A00}
-\definecolor{textdark}{HTML}{1E2933}
-\definecolor{muted}{HTML}{5B6770}
-\definecolor{eqbg}{RGB}{215,232,252}
-\definecolor{accentbg}{RGB}{255,244,218}
-\definecolor{accentborder}{RGB}{200,162,50}
-\definecolor{footerbg}{RGB}{234,238,244}
+\definecolor{navy}{HTML}{4A2D82}          % deep indigo-purple (primary)
+\definecolor{accent}{HTML}{6B52B8}        % medium purple
+\definecolor{midblue}{HTML}{8A72CC}       % lighter purple
+\definecolor{softbg}{RGB}{232,226,252}    % very light lavender (softbox bg)
+\definecolor{softline}{RGB}{148,122,205}  % medium purple border
+\definecolor{highlight}{HTML}{3A2070}     % very dark purple (emphasis)
+\definecolor{warninggold}{HTML}{C98A00}   % gold
+\definecolor{textdark}{HTML}{1E1A2E}      % dark purple-black text
+\definecolor{muted}{HTML}{5B5580}         % muted purple-gray
+\definecolor{eqbg}{RGB}{220,212,248}      % light purple eq background
+\definecolor{accentbg}{RGB}{255,249,218}  % light cream (accentbox bg)
+\definecolor{accentborder}{RGB}{185,145,35}% gold border
+\definecolor{footerbg}{RGB}{228,222,245}  % light lavender footer
 
 % ===== BEAMER COLORS =====
 \setbeamercolor{normal text}{fg=textdark,bg=white}
 \setbeamercolor{structure}{fg=accent}
 \setbeamercolor{frametitle}{fg=white,bg=navy}
-\setbeamercolor{frametitle bar}{fg=white,bg=accent}
 \setbeamercolor{title}{fg=white,bg=navy}
 \setbeamercolor{subtitle}{fg=white!85!navy}
 \setbeamercolor{author}{fg=textdark}
 \setbeamercolor{date}{fg=muted}
 \setbeamercolor{block title}{fg=white,bg=navy}
 \setbeamercolor{block body}{fg=textdark,bg=softbg}
-\setbeamercolor{section in head/foot}{fg=muted,bg=footerbg}
+% --- miniframes navigation ---
+\setbeamercolor{section in head/foot}{fg=white,bg=navy}
+\setbeamercolor{section in head/foot shaded}{fg=white!38!navy,bg=navy}
+\setbeamercolor{mini frame}{fg=white!55!navy,bg=navy}
 \setbeamercolor{page number in head/foot}{fg=muted,bg=footerbg}
 \setbeamercolor{section in toc}{fg=navy}
 \setbeamercolor{subsection in toc}{fg=accent}
@@ -64,36 +67,41 @@
 \setbeamerfont{subtitle}{size=\large,series=\mdseries}
 \setbeamerfont{frametitle}{series=\bfseries,size=\large}
 \setbeamerfont{block title}{series=\bfseries}
+\setbeamerfont{section in head/foot}{size=\tiny,series=\bfseries}
 
-% ===== CUSTOM FRAMETITLE: navy band + accent left stripe =====
-\makeatletter
+% ===== CUSTOM FRAMETITLE: clean full-width navy-purple band =====
 \setbeamertemplate{frametitle}{%
   \nointerlineskip%
-  \@tempdima=\paperwidth
-  \advance\@tempdima by -0.28cm
-  \hbox{%
-    \begin{beamercolorbox}[wd=0.28cm,ht=0.72cm,dp=0.10cm]{frametitle bar}%
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=\@tempdima,ht=0.72cm,dp=0.10cm,%
-      leftskip=0.28cm,rightskip=0.20cm]{frametitle}%
-      \vbox to 0.72cm{\vfil\usebeamerfont{frametitle}\insertframetitle\vfil}%
-    \end{beamercolorbox}%
-  }%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.68cm,dp=0.10cm]{frametitle}%
+    \hspace{0.35cm}\vbox to 0.68cm{\vfil\usebeamerfont{frametitle}\insertframetitle\vfil}%
+  \end{beamercolorbox}%
 }
-\makeatother
 
-% ===== HEADLINE: none =====
-\setbeamertemplate{headline}{}
+% ===== HEADLINE: section navigation with mini-frame dots =====
+% Manual implementation to avoid outer-theme side effects on text width
+\newcommand{\navdot}[1]{%
+  \ifnum#1=\c@section
+    {\color{white}\rule{3pt}{3pt}}%
+  \else
+    {\color{white!38!navy}\rule{3pt}{3pt}}%
+  \fi
+}
+\setbeamertemplate{headline}{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.38cm,dp=0.10cm,center]{section in head/foot}%
+    \insertsectionnavigationhorizontal{\paperwidth}{\hskip6pt}{\hfill\hskip6pt}%
+  \end{beamercolorbox}%
+}
 
-% ===== FOOTLINE: section name + page/total =====
+% ===== FOOTLINE: short author left + page right =====
 \setbeamertemplate{footline}{%
   \leavevmode%
   \hbox{%
-    \begin{beamercolorbox}[wd=0.65\paperwidth,ht=0.28cm,dp=0.15cm,leftskip=0.40cm]{section in head/foot}%
-      \scriptsize\color{muted}\insertsectionhead%
+    \begin{beamercolorbox}[wd=0.60\paperwidth,ht=0.26cm,dp=0.14cm]{page number in head/foot}%
+      \hspace{0.35cm}\scriptsize\color{muted}Bruinsma \& Virág%
     \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=0.35\paperwidth,ht=0.28cm,dp=0.15cm,rightskip=0.40cm]{page number in head/foot}%
-      \hfill\scriptsize\color{muted}\insertframenumber\,/\,\inserttotalframenumber%
+    \begin{beamercolorbox}[wd=0.40\paperwidth,ht=0.26cm,dp=0.14cm]{page number in head/foot}%
+      \hfill\scriptsize\color{muted}\insertframenumber\,/\,\inserttotalframenumber\hspace{0.35cm}%
     \end{beamercolorbox}%
   }%
 }
@@ -129,7 +137,10 @@
 }
 
 % ===== TCOLORBOX TOOLKIT =====
-\tcbset{boxsep=2pt,left=6pt,right=6pt,top=4pt,bottom=4pt,arc=5pt}
+% Note: tcolorbox width inside Beamer columns = \linewidth by default,
+% which includes the border. Use width=\linewidth to be explicit.
+\tcbset{boxsep=2pt,left=5pt,right=5pt,top=4pt,bottom=4pt,arc=5pt,
+        width=\linewidth,before upper={\setlength{\parskip}{2pt}}}
 
 \newtcolorbox{pill}[1][]{%
   colback=navy,coltext=white,colframe=navy,
@@ -138,21 +149,21 @@
 
 \newtcolorbox{eqbox}[1][]{%
   colback=eqbg,colframe=accent,boxrule=1.2pt,arc=4pt,
-  left=6pt,right=6pt,top=4pt,bottom=4pt,coltext=textdark,#1}
+  left=5pt,right=5pt,top=4pt,bottom=4pt,coltext=textdark,#1}
 
 \newtcolorbox{softbox}[1][]{%
   colback=softbg,colframe=softline,boxrule=0.9pt,arc=5pt,
-  left=6pt,right=6pt,top=4pt,bottom=4pt,coltext=textdark,
+  left=5pt,right=5pt,top=4pt,bottom=4pt,coltext=textdark,
   fonttitle=\bfseries,coltitle=navy,#1}
 
 \newtcolorbox{accentbox}[1][]{%
   colback=accentbg,colframe=accentborder,boxrule=1.2pt,arc=5pt,
-  left=6pt,right=6pt,top=4pt,bottom=4pt,coltext=textdark,
+  left=5pt,right=5pt,top=4pt,bottom=4pt,coltext=textdark,
   fonttitle=\bfseries,coltitle=textdark,#1}
 
 \newtcolorbox{statbox}[1][]{%
   colback=eqbg,colframe=navy,boxrule=1.4pt,arc=5pt,
-  left=6pt,right=6pt,top=4pt,bottom=4pt,
+  left=5pt,right=5pt,top=4pt,bottom=4pt,
   coltext=textdark,fonttitle=\bfseries,coltitle=white,
   title filled=true,colbacktitle=navy,#1}
 
@@ -161,7 +172,7 @@
   colback=white,colframe=accent,
   boxrule=0pt,leftrule=3pt,
   arc=0pt,outer arc=0pt,
-  left=10pt,right=6pt,top=2pt,bottom=2pt,
+  left=10pt,right=5pt,top=2pt,bottom=2pt,
   coltext=muted,fontupper=\itshape\small,#1}
 
 % bignum: large numerical callout card
@@ -175,9 +186,9 @@
 \newcommand{\con}[1]{\textcolor{warninggold}{\textbf{#1}}}
 \newcommand{\HL}[1]{\textcolor{accent}{\textbf{#1}}}
 
-% stepchip: navy badge with number, for labeling steps (colorbox to work in titles)
+% stepchip: gold badge with number, matching PDF style
 \newcommand{\stepchip}[1]{%
-  {\setlength\fboxsep{2.5pt}\colorbox{navy}{\color{white}\bfseries\scriptsize~#1~}}%
+  {\setlength\fboxsep{2.5pt}\colorbox{warninggold}{\color{white}\bfseries\scriptsize~#1~}}%
 }
 
 \newcommand{\takeaway}[1]{%
