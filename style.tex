@@ -136,6 +136,10 @@
   \end{beamercolorbox}%
 }
 
+% Suppress underfull hbox warnings (common in Beamer narrow columns)
+\hbadness=10000
+\vbadness=10000
+
 % ===== TCOLORBOX TOOLKIT =====
 % Note: tcolorbox width inside Beamer columns = \linewidth by default,
 % which includes the border. Use width=\linewidth to be explicit.
