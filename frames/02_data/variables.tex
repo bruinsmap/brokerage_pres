@@ -1,33 +1,36 @@
 % !TEX root = ../../main.tex
-\begin{frame}{How we measure the mechanism}
+\begin{frame}{Measuring the mechanism}
 \scriptsize
 \begin{columns}[T,onlytextwidth]
 \column{0.48\textwidth}
-\begin{softbox}[title=Brokerage]
-We proxy brokerage with a constraint-based network position: low constraint means the inventor connects neighborhoods that are not already densely tied to one another.\\[0.08cm]
-\textbf{Distribution:} mean $=0.203$, median $=0.082$.
+\begin{softbox}[title=Reciprocal Brokerage measure]
+We proxy brokerage with a constraint-based network position:  \\ 
+high constraint means the inventor connects neighborhoods that are not already densely tied to one another.\\[0.08cm]
+\textbf{Distribution:} \\ 
+mean $=0.203$, median $=0.082$.
 \end{softbox}
 
 \column{0.48\textwidth}
-\begin{softbox}[title=Atypicality]
+\begin{softbox}[title=Atypicality measurement]
 Patents are atypical when CPC subclass pairs appear together much less often than expected from historical co-occurrence.\\[0.08cm]
 \textbf{Incidence:} 17.5\% of inventor-window observations contain at least one atypical patent at $Z<0$, and 14.6\% do at $Z<-2$.
 \end{softbox}
 \end{columns}
 
-\vspace{0.1cm}
+\vspace{0.05cm}
 \begin{columns}[T,onlytextwidth]
 \column{0.54\textwidth}
 \begin{eqbox}
 \[
-Z_{ij}=\frac{O_{ij}-E_{ij}}{\sigma_{ij}}
+w_{ij} = \begin{cases} \frac{1}{n_{i}} \sum_{p} w_{ij}^{(p)} & \text{if } j \in \text{Internal} \\ \sum_{p} w_{ij}^{(p)} & \text{if } j \in \text{External} \end{cases}
 \]
-Lower $Z$ means the pairing is rarer than chance.
+Weight intrafirm ties inversely by the inventor’s degree within the firm ($n_{i}$). 
 \end{eqbox}
 
 \column{0.42\textwidth}
 \begin{accentbox}[title=Thresholds used in the talk]
-$Z<0$ for broad novelty, $Z<-2$ as the preferred benchmark, and $Z<-5$ / $Z<-14$ for rarer combinations.
+$Z<0$ for broad novelty, \\
+$Z<-2$ as the preferred benchmark, and $Z<-5$ / $Z<-14$ for rarer combinations.
 \end{accentbox}
 \end{columns}
 \end{frame}
