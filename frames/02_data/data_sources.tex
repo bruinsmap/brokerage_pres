@@ -1,52 +1,59 @@
 % !TEX root = ../../main.tex
-\begin{frame}{Data architecture}
-\footnotesize
-\begin{columns}[T,onlytextwidth]
-\column{0.57\textwidth}
-\begin{softbox}[title=What goes into the panel?]
-{\scriptsize
-\begin{tabular}{@{}p{0.46\linewidth}p{0.40\linewidth}@{}}
-Patent applications with inventor \& CPC info & EPO PATSTAT, Apr.~2024 \\
-EU-28 inventors, NUTS2 & 1984--2023 \\
-Network ($\geq$2 inv.) & 5.45M obs. \\
-Estimation ($\geq$2 CPC) & 2.46M obs. \\
-\end{tabular}}
-\end{softbox}
-\begin{accentbox}[title=Network Building]
-Exponential time-weighted network. Tie deletion and refresh.
-\end{accentbox}
+\begin{frame}{Data funnel: from patents to inventor-window tests}
+\centering
+\begin{tikzpicture}[
+	every node/.style={font=\scriptsize,align=center},
+	funnel/.style={draw=navy,fill=eqbg,thick,rounded corners=5pt,minimum height=0.72cm,inner sep=3pt},
+	arrow/.style={-{Stealth[length=2.5mm]},very thick,accent}
+]
+\node[funnel,minimum width=2.5cm] (raw) at (-5.1,0.7) {EPO PATSTAT\\Apr.~2024};
+\node[funnel,minimum width=2.8cm] (eu) at (-2.6,0.7) {EU-28 inventors\\1984--2023};
+\node[funnel,minimum width=3.0cm] (net) at (0.15,0.7) {Time-window\\co-inventor networks};
+\node[funnel,minimum width=2.9cm] (merge) at (2.9,0.7) {Brokerage +\\CPC atypicality};
+\node[funnel,minimum width=2.45cm,fill=accentbg,draw=warninggold] (est) at (5.25,0.7) {Estimation\\sample};
+\foreach \a/\b in {raw/eu,eu/net,net/merge,merge/est}
+	\draw[arrow] (\a) -- (\b);
 
-\column{0.39\textwidth}
-\begin{statbox}[title=What the sample buys us]
-\textbf{Scale:} Europe-wide coverage\\[0.06cm]
-\textbf{Unit:} Growing inventor network.\\[0.06cm]
-\textbf{Advantage:} compare inventors within the same historical context.
-\end{statbox}
-\end{columns}
-\end{frame}
-
-\begin{frame}{From raw patents to an inventor panel}
-\small
-\begin{columns}[T,onlytextwidth]
-\column{0.58\textwidth}
-\begin{tikzpicture}[node distance=0.3cm and 0.45cm, every node/.style={align=center,font=\small\bfseries}]
-\node[draw=navy,fill=eqbg,text=textdark,minimum width=5.8cm,minimum height=0.7cm] (s1) {Patent records + inventor addresses};
-\node[draw=accent,fill=white,text=textdark,minimum width=5.8cm,minimum height=0.7cm,below=of s1] (s2) {NUTS2 matching + time windows};
-\node[draw=navy,fill=eqbg,text=textdark,minimum width=5.8cm,minimum height=0.7cm,below=of s2] (s3) {Co-inventor network construction};
-\node[draw=accent,fill=white,text=textdark,minimum width=5.8cm,minimum height=0.7cm,below=of s3] (s4) {Brokerage + atypicality merge};
-\draw[-{Stealth[length=3mm]},thick,accent] (s1) -- (s2);
-\draw[-{Stealth[length=3mm]},thick,accent] (s2) -- (s3);
-\draw[-{Stealth[length=3mm]},thick,accent] (s3) -- (s4);
+\node[draw=softline,fill=softbg,rounded corners=6pt,text width=2.8cm,minimum height=0.82cm] at (-3.7,-0.95)
+	{\bfseries Network scale\\\large 5.45M\\[-2pt]\scriptsize records};
+\node[draw=accentborder,fill=accentbg,rounded corners=6pt,text width=2.8cm,minimum height=0.82cm] at (0,-0.95)
+	{\bfseries Main sample\\\large 2.46M\\[-2pt]\scriptsize observations};
+\node[draw=softline,fill=softbg,rounded corners=6pt,text width=2.8cm,minimum height=0.82cm] at (3.7,-0.95)
+	{\bfseries Comparison\\\large NUTS2 + time\\[-2pt]\scriptsize fixed effects};
 \end{tikzpicture}
 
-\column{0.38\textwidth}
-\begin{softbox}[title=Why this is persuasive]
-The panel follows inventors through changing collaboration neighborhoods---not region-level averages.
-\end{softbox}
+\vspace{0.08cm}
+\begin{accentbox}[title={Unit of analysis}]
+\footnotesize The \HL{inventor-window}: the same inventor can be observed in changing collaboration neighborhoods over time.
+\end{accentbox}
+\end{frame}
+
+\begin{frame}{Panel construction: what is joined to what?}
+\centering
+\begin{tikzpicture}[
+	every node/.style={font=\scriptsize,align=center},
+	source/.style={draw=accent,fill=white,thick,rounded corners=6pt,text width=3.25cm,minimum height=1.05cm,inner sep=5pt},
+	product/.style={draw=navy,fill=eqbg,thick,rounded corners=6pt,text width=3.8cm,minimum height=1.05cm,inner sep=5pt},
+	arrow/.style={-{Stealth[length=2.5mm]},very thick,accent}
+]
+\node[source] (inv) at (-4.7,1.05) {Inventor--patent links\\\scriptsize who collaborated with whom};
+\node[source] (geo) at (-4.7,-0.45) {Inventor addresses\\\scriptsize NUTS2 geography};
+\node[source] (cpc) at (-4.7,-1.95) {CPC subclasses\\\scriptsize technological combinations};
+
+\node[product] (network) at (0,0.85) {Time-decayed network\\\scriptsize old ties fade, recent ties matter};
+\node[product] (atyp) at (0,-1.45) {Historical rarity score\\\scriptsize observed vs expected CPC pairings};
+\node[draw=warninggold,fill=accentbg,thick,rounded corners=7pt,text width=3.9cm,minimum height=1.25cm] (panel) at (4.55,-0.25)
+	{\bfseries Inventor-window panel\\\scriptsize brokerage position matched to atypical patenting};
+
+\draw[arrow] (inv.east) -- (network.west);
+\draw[arrow] (geo.east) -- (network.west);
+\draw[arrow] (cpc.east) -- (atyp.west);
+\draw[arrow] (network.east) -- (panel.west);
+\draw[arrow] (atyp.east) -- (panel.west);
+\end{tikzpicture}
 
 \vspace{0.12cm}
-\begin{softbox}[title=Main limitation]
-We observe formal patent collaboration only; broader brokerage is likely understated.
-\end{softbox}
-\end{columns}
+\begin{accentbox}[title={Main limitation, kept explicit}]
+We observe formal patent collaboration; informal knowledge exchange and non-patented innovation remain outside the frame.
+\end{accentbox}
 \end{frame}

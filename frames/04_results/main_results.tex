@@ -1,47 +1,50 @@
 % !TEX root = ../../main.tex
-\begin{frame}{Baseline result: brokerage predicts atypical patents}
+\begin{frame}{Baseline: brokerage shifts the extensive margin}
 \begin{columns}[T,onlytextwidth]
-\column{0.60\textwidth}
+\column{0.66\textwidth}
 \centering
-\includegraphics[height=0.62\textheight,width=0.98\linewidth,keepaspectratio]{figure1_marginal_effects.png}
-\slidesource{authors' pipeline output based on EPO PATSTAT}
+\includegraphics[height=0.45\textheight,width=\linewidth,keepaspectratio]{figure1_marginal_effects.png}
+{\scriptsize\color{muted}\textit{Source: authors' pipeline output based on EPO PATSTAT}\par}
 
-\column{0.37\textwidth}
-\vspace{0.4cm}
+\column{0.31\textwidth}
+\vspace{0.03cm}
 \begin{bignum}
 \centering
-{\LARGE\bfseries\color{navy} 5--6\%}\\[0.12cm]
-{\footnotesize odds increase\\per 1 SD brokerage}
+{\LARGE\bfseries\color{navy} +5--6\%}\\[0.10cm]
+{\footnotesize higher odds per 1 SD brokerage}
 \end{bignum}
-\vspace{0.25cm}
-\begin{softbox}[title=Key finding]
-\footnotesize\pos{Persistent} across all four thresholds:\\[0.04cm]
-{\scriptsize$Z{<}0$,\;$Z{<}{-2}$,}\\[0.02cm]
-{\scriptsize$Z{<}{-5}$,\;$Z{<}{-14}$}
-\end{softbox}
+\vspace{0.08cm}
+\begin{eqbox}
+\centering
+\footnotesize
+$\beta_{Z<-2}=0.0537^{***}$\\[-1pt]
+$N=2{,}458{,}929$
+\end{eqbox}
 \end{columns}
+\vspace{0.10cm}
+\takeaway{Modest but precise: brokerage is associated with a higher probability of producing at least one benchmark-atypical patent.}
 \end{frame}
 
-\begin{frame}{Core coefficients: economically modest, consistently positive}
-\footnotesize
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
+\begin{frame}[shrink=8]{Threshold ladder: the sign survives stricter rarity cutoffs}
 \centering
-\resizebox{\linewidth}{!}{%
-\begin{tabular}{@{}lccc@{}}
-\toprule
-Threshold & Coef. & Odds $\Delta$ & Scope \\
-\midrule
-$Z<0$   & 0.0466$^{***}$ & +\orchange{0.0466} & broad \\
-$Z<-2$  & 0.0537$^{***}$ & +\orchange{0.0537} & benchmark \\
-$Z<-5$  & 0.0582$^{***}$ & +\orchange{0.0582} & rare \\
-$Z<-14$ & 0.0541$^{***}$ & +\orchange{0.0541} & extreme \\
-\bottomrule
-\end{tabular}}
+\begin{tikzpicture}[
+	every node/.style={font=\scriptsize,align=center},
+	rung/.style={draw=navy,fill=eqbg,thick,rounded corners=6pt,text width=2.25cm,minimum height=0.88cm,inner sep=3pt},
+	arrow/.style={-{Stealth[length=2.4mm]},very thick,accent}
+]
+\node[rung] (z0) at (-4.65,0.55) {\bfseries $Z<0$\\\large 0.0466$^{***}$};
+\node[rung] (z2) at (-1.55,0.55) {\bfseries $Z<-2$\\\large 0.0537$^{***}$};
+\node[rung] (z5) at (1.55,0.55) {\bfseries $Z<-5$\\\large 0.0582$^{***}$};
+\node[rung] (z14) at (4.65,0.55) {\bfseries $Z<-14$\\\large 0.0541$^{***}$};
+\foreach \a/\b in {z0/z2,z2/z5,z5/z14}
+	\draw[arrow] (\a) -- (\b);
+\node[muted] at (0,-0.50) {broad novelty \hspace{1.35cm} benchmark \hspace{1.35cm} rare \hspace{1.35cm} extreme};
+\draw[warninggold,thick,decorate,decoration={brace,amplitude=4pt,mirror,raise=6pt}] (-5.65,-0.02) -- (5.65,-0.02)
+	node[midway,below=12pt,warninggold,font=\scriptsize\bfseries]{not driven by one cutoff};
+\end{tikzpicture}
 
-\column{0.48\textwidth}
-\begin{softbox}[title=Interpretation]
-Brokerage does not make the whole portfolio exotic --- it raises the chance of crossing into atypical recombination \textbf{at least once} (extensive margin).
-\end{softbox}
-\end{columns}
+\vspace{0.05cm}
+\begin{accentbox}[title={Reading}]
+\footnotesize Brokerage predicts the \HL{extensive margin} across stricter rarity definitions.
+\end{accentbox}
 \end{frame}

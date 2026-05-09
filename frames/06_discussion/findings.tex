@@ -1,18 +1,26 @@
 % !TEX root = ../../main.tex
-\begin{frame}{Beyond Geography: What Brokerage Actually Does}
+\begin{frame}{Interpretation: brokerage changes opportunity exposure}
+\centering
+\begin{tikzpicture}[
+	every node/.style={font=\scriptsize,align=center},
+	block/.style={draw=navy,fill=eqbg,thick,rounded corners=7pt,text width=3.18cm,minimum height=0.95cm,inner sep=4pt},
+	outcomebox/.style={draw=warninggold,fill=accentbg,thick,rounded corners=7pt,text width=3.25cm,minimum height=0.95cm,inner sep=4pt},
+	arrow/.style={-{Stealth[length=3mm]},very thick,accent}
+]
+\node[block] (position) at (-4.25,0.82) {\stepchip{1}\quad\textbf{Position}\\\scriptsize bridges separated neighborhoods};
+\node[block] (exposure) at (0,0.82) {\stepchip{2}\quad\textbf{Exposure}\\\scriptsize sees non-redundant material};
+\node[outcomebox] (margin) at (4.25,0.82) {\stepchip{3}\quad\textbf{Outcome}\\\scriptsize higher chance of atypical patenting};
+\draw[arrow] (position) -- (exposure);
+\draw[arrow] (exposure) -- (margin);
 
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\begin{accentbox}[title=Micro-foundation]
-Regional patterns are grounded in the structural positions of individual inventors who bridge knowledge boundaries.
+\node[draw=softline,fill=softbg,rounded corners=6pt,text width=3.85cm,minimum height=0.78cm,inner sep=4pt] at (-2.15,-1.0)
+	{\bfseries Not the claim\\[-1pt]\scriptsize every patent becomes exotic};
+\node[draw=accentborder,fill=accentbg,rounded corners=6pt,text width=3.85cm,minimum height=0.78cm,inner sep=4pt] at (2.15,-1.0)
+	{\bfseries The claim\\[-1pt]\scriptsize higher extensive margin};
+\end{tikzpicture}
+
+\vspace{0.08cm}
+\begin{accentbox}[title={Micro-foundation}]
+\footnotesize \HL{Opportunity exposure}: network position changes what combinations are reachable.
 \end{accentbox}
-
-\column{0.48\textwidth}
-\begin{accentbox}[title=Productive Generalist]
-Contrary to the "radical specialist" narrative, brokerage does not shift the composition of an inventor’s portfolio.
-\end{accentbox}
-\end{columns}
-
-\vspace{0.3cm}
-\takeaway{It expands the total volume of technological opportunity; atypical patents rise in proportion to total output.}
 \end{frame}

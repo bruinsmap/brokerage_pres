@@ -1,10 +1,30 @@
 % !TEX root = ../../main.tex
-\begin{frame}{Brokerage is historically contingent, not permanent}
+\begin{frame}{Historical contingency: brokerage returns are not fixed}
+\begin{columns}[T,onlytextwidth]
+\column{0.68\textwidth}
 \centering
-\includegraphics[height=0.50\textheight,keepaspectratio]{figures/mechanism_R1_betas.pdf}
+\includegraphics[height=0.49\textheight,width=\linewidth,keepaspectratio]{figures/mechanism_R1_betas.pdf}
+{\scriptsize\color{muted}\textit{Source: rolling-window mechanism analysis; NUTS2-FE Poisson estimates}\par}
 
-\vspace{0.1cm}
-\begin{eqbox}
-Brokerage returns attenuate over time. Windows with greater global connectivity show \pos{stronger} returns; denser local clustering shows \con{weaker} returns.
-\end{eqbox}
+\column{0.29\textwidth}
+\vspace{-0.08cm}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,align=center}]
+\draw[->,thick,muted] (0,0) -- (3.0,0) node[right,muted]{time};
+\foreach \x/\lab in {0.25/{1980s},1.6/{2000s},3.0/{2020s}} {
+	\fill[accent] (\x,0) circle (3pt);
+	\node[above,navy,font=\scriptsize\bfseries] at (\x,0.12) {\lab};
+}
+\draw[warninggold,thick,decorate,decoration={brace,amplitude=4pt,raise=8pt}] (0.15,0.42) -- (3.0,0.42)
+	node[midway,above=12pt,warninggold,font=\scriptsize\bfseries]{changing era};
+\end{tikzpicture}
+
+\vspace{0.03cm}
+\begin{accentbox}[title={Careful reading}]
+\scriptsize Consistent with historical contingency; not standalone causal proof.
+\end{accentbox}
+\vspace{0.03cm}
+\begin{softbox}[title={Conference point}]
+\scriptsize Brokerage payoffs vary with the surrounding knowledge network.
+\end{softbox}
+\end{columns}
 \end{frame}

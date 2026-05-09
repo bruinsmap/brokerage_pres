@@ -1,27 +1,33 @@
 % !TEX root = ../../main.tex
-\begin{frame}{Identification strategy}
+\begin{frame}[shrink=3]{Identification design: compare inventors within place and era}
 \scriptsize
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\begin{softbox}[title=Baseline design]
-Inventor-level panel regressions link brokerage in window $t$ to the count of atypical patents inventor $i$ produces in the same window (Poisson).\\[0.15cm]
-NUTS2 region and time-window fixed effects absorb regional differences and common time shocks.
-\end{softbox}
-
-\column{0.48\textwidth}
-\begin{softbox}[title=Controls and threats]
-Controls: log degree, log component size, clustering coefficient, inter-firm tie share, log career patents, experience.\\[0.15cm]
-NUTS2 region and time-window fixed effects throughout.\\[0.15cm]
-Main threat: stronger inventors may self-select into brokerage positions.
-\end{softbox}
-\end{columns}
-
-\vspace{0.25cm}
-
 \begin{eqbox}
 \[
-E[Y_{it}] = \exp\!\bigl(\beta\,\text{Brokerage}_{it} + \boldsymbol{\gamma}'\mathbf{X}_{it} + \delta_r + \tau_t\bigr)
+g(Y_{it})=\beta\,\text{Brokerage}_{it}+\boldsymbol{\gamma}'\mathbf{X}_{it}+\delta_{r(i)}+\tau_t
 \]
-Main outcomes are Poisson count models for atypical patent counts.
+\centering Benchmark outcome: $Y_{it}=\mathbf{1}\{\text{at least one atypical patent at }Z<-2\}$.
 \end{eqbox}
+
+\vspace{0.02cm}
+\centering
+\begin{tikzpicture}[
+	every node/.style={font=\scriptsize,align=center},
+	block/.style={draw=navy,fill=eqbg,thick,rounded corners=6pt,text width=2.52cm,minimum height=0.82cm,inner sep=4pt},
+	absorb/.style={draw=softline,fill=softbg,thick,rounded corners=6pt,text width=2.55cm,minimum height=0.82cm,inner sep=4pt},
+	arrow/.style={-{Stealth[length=2.4mm]},very thick,accent}
+]
+\node[block] (b) at (-4.55,0.55) {\stepchip{$\beta$}\quad\textbf{Brokerage}\\\scriptsize structural position};
+\node[block] (x) at (-1.52,0.55) {\stepchip{$X$}\quad\textbf{Controls}\\\scriptsize degree, patents, experience};
+\node[absorb] (r) at (1.52,0.55) {\stepchip{$\delta_r$}\quad\textbf{NUTS2 FE}\\\scriptsize regional differences};
+\node[absorb] (t) at (4.55,0.55) {\stepchip{$\tau_t$}\quad\textbf{Window FE}\\\scriptsize time shocks};
+\node[draw=warninggold,fill=accentbg,thick,rounded corners=7pt,text width=4.95cm,minimum height=0.76cm] (y) at (0,-1.15)
+	{\bfseries atypical recombination outcome\\\scriptsize logit main model; counts in robustness};
+\foreach \n in {b,x,r,t}
+	\draw[arrow] (\n.south) -- (y.north);
+\end{tikzpicture}
+
+\vspace{0.02cm}
+\begin{accentbox}[title={Reading}]
+\footnotesize Associational design: compare brokered and less-brokered inventors within the same region and time window.
+\end{accentbox}
 \end{frame}

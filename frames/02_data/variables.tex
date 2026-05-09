@@ -1,36 +1,59 @@
 % !TEX root = ../../main.tex
-\begin{frame}{Measuring the mechanism}
+\begin{frame}[shrink=3]{Measurement: two objects, one inventor-window}
 \scriptsize
 \begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\begin{softbox}[title=Reciprocal Brokerage measure]
-We proxy brokerage with a constraint-based network position:  \\ 
-high constraint means the inventor connects neighborhoods that are not already densely tied to one another.\\[0.08cm]
-\textbf{Distribution:} \\ 
-mean $=0.203$, median $=0.082$.
-\end{softbox}
-
-\column{0.48\textwidth}
-\begin{softbox}[title=Atypicality measurement]
-Patents are atypical when CPC subclass pairs appear together much less often than expected from historical co-occurrence.\\[0.08cm]
-\textbf{Incidence:} 17.5\% of inventor-window observations contain at least one atypical patent at $Z<0$, and 14.6\% do at $Z<-2$.
-\end{softbox}
-\end{columns}
-
-\vspace{0.05cm}
-\begin{columns}[T,onlytextwidth]
-\column{0.54\textwidth}
+\column{0.49\textwidth}
 \begin{eqbox}
+\centering
+\textbf{Brokerage position}\\[-2pt]
 \[
-w_{ij} = \begin{cases} \frac{1}{n_{i}} \sum_{p} w_{ij}^{(p)} & \text{if } j \in \text{Internal} \\ \sum_{p} w_{ij}^{(p)} & \text{if } j \in \text{External} \end{cases}
+\text{Brokerage}_{it}=1-\text{BurtConstraint}_{it}
 \]
-Weight intrafirm ties inversely by the inventor’s degree within the firm ($n_{i}$). 
 \end{eqbox}
+\vspace{0.02cm}
+\centering
+\begin{tikzpicture}[scale=0.70,every node/.style={font=\scriptsize,align=center}]
+\node[draw=navy,fill=navy,text=white,circle,minimum size=0.58cm] (ego) at (0,0) {$i$};
+\foreach \x/\y/\n in {-1.7/1.0/a,-1.7/-1.0/b,1.7/1.0/c,1.7/-1.0/d} {
+	\node[draw=accent,fill=eqbg,circle,minimum size=0.44cm] (\n) at (\x,\y) {};
+	\draw[thick,accent] (ego) -- (\n);
+}
+\draw[thick,softline] (a) -- (b);
+\draw[thick,softline] (c) -- (d);
+\draw[dashed,very thick,warninggold] (0,1.35) -- (0,-1.35);
+\node[muted] at (0,-1.72) {low redundancy across ego's neighborhoods};
+\end{tikzpicture}
+\vspace{-0.02cm}
+\begin{softbox}[title={Tie weighting}]
+\[
+w_{ij}=\begin{cases}
+\frac{1}{n_i}\sum_p w_{ij}^{(p)} & \text{within firm}\\[2pt]
+\sum_p w_{ij}^{(p)} & \text{across firms}
+\end{cases}
+\]
+\end{softbox}
 
-\column{0.42\textwidth}
-\begin{accentbox}[title=Thresholds used in the talk]
-$Z<0$ for broad novelty, \\
-$Z<-2$ as the preferred benchmark, and $Z<-5$ / $Z<-14$ for rarer combinations.
-\end{accentbox}
+\column{0.49\textwidth}
+\begin{eqbox}
+\centering
+\textbf{Atypical recombination}\\[-2pt]
+\[
+Z_{ab,t}=\frac{\text{Observed}_{ab,t}-\text{Expected}_{ab,t}}{\sigma_{ab,t}}
+\]
+\end{eqbox}
+\vspace{0.02cm}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,align=center},xscale=1.0]
+\draw[->,thick,muted] (-0.2,0) -- (5.1,0) node[right]{rarer};
+\foreach \x/\lab/\desc in {0.6/{$Z<0$}/{broad},1.9/{$Z<-2$}/{benchmark},3.2/{$Z<-5$}/{rare},4.5/{$Z<-14$}/{extreme}} {
+	\draw[thick,accent] (\x,0.12) -- (\x,-0.12);
+	\node[above,navy,font=\scriptsize\bfseries] at (\x,0.15) {\lab};
+	\node[below,muted] at (\x,-0.16) {\desc};
+}
+\end{tikzpicture}
+\vspace{0.10cm}
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}\begin{bignum}\centering{\Large 17.5\%}\\{\scriptsize any atypical patent, $Z<0$}\end{bignum}
+\column{0.48\textwidth}\begin{bignum}\centering{\Large 14.6\%}\\{\scriptsize benchmark, $Z<-2$}\end{bignum}
+\end{columns}
 \end{columns}
 \end{frame}

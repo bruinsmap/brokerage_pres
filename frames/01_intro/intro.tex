@@ -1,48 +1,54 @@
 % !TEX root = ../../main.tex
-\begin{frame}{Brokerage and Innovation}
-\footnotesize
-\begin{ghostquote}
-``Holes in social structure create a competitive advantage for people whose relationships span the holes.''\ \normalfont\color{muted}---~Burt (2004)
-\end{ghostquote}
-\vspace{-0.25cm}
-\begin{columns}[T,onlytextwidth]
-\column{0.54\textwidth}
-\begin{softbox}[title=The research puzzle]
-Most patents recombine technologies conventionally. We focus on the smaller set that combines knowledge in \textbf{statistically unusual} ways and ask \textbf{who is structurally positioned} to make those combinations happen.
-\end{softbox}
-\vspace{0.01cm}
-\begin{softbox}[title=Why brokerage should matter]
-Inventors bridging disconnected neighborhoods see more non-redundant knowledge and more opportunities to connect ideas usually kept apart.
-\end{softbox}
+\begin{frame}{Why brokerage should matter}
+\centering
+\vspace{-0.03cm}
+\begin{tikzpicture}[
+	every node/.style={font=\scriptsize,align=center},
+	state/.style={draw=navy,fill=eqbg,thick,rounded corners=6pt,text width=3.0cm,minimum height=0.92cm,inner sep=4pt},
+	outcome/.style={draw=warninggold,fill=accentbg,thick,rounded corners=6pt,text width=3.05cm,minimum height=0.92cm,inner sep=4pt},
+	arrow/.style={-{Stealth[length=3mm]},very thick,accent}
+]
+\node[state] (holes) at (-4.35,1.0) {\bfseries Structural holes\\[-1pt]\scriptsize separated neighborhoods};
+\node[state] (knowledge) at (0,1.0) {\bfseries Non-redundant knowledge\\[-1pt]\scriptsize less-visible ideas};
+\node[outcome] (recomb) at (4.35,1.0) {\bfseries Atypical recombination\\[-1pt]\scriptsize rare CPC pairings};
 
-\column{0.43\textwidth}
-\begin{statbox}[title=What is at stake?]
-\textbf{Theory:} micro-foundations of novelty\\[0.03cm]
-\textbf{Firms:} do cross-boundary brokers help?\\[0.03cm]
-\textbf{Regions:} does local variety amplify brokerage?
-\end{statbox}
-\end{columns}
+\draw[arrow] (holes) -- node[above,muted,font=\scriptsize]{broker position} (knowledge);
+\draw[arrow] (knowledge) -- node[above,muted,font=\scriptsize]{new search paths} (recomb);
+
+\node[draw=softline,fill=softbg,rounded corners=6pt,text width=3.05cm,minimum height=0.85cm] (closed) at (-2.35,-1.05)
+	{\bfseries Closed neighborhood\\[-1pt]\scriptsize familiar pairs};
+\node[draw=accentborder,fill=accentbg,rounded corners=6pt,text width=3.05cm,minimum height=0.85cm] (broker) at (2.35,-1.05)
+	{\bfseries Brokered neighborhood\\[-1pt]\scriptsize unusual pairs};
+\draw[-{Stealth[length=2.5mm]},thick,muted] (closed.east) -- node[above,font=\scriptsize,muted]{contrast} (broker.west);
+\end{tikzpicture}
+
+\vspace{0.08cm}
+\begin{accentbox}[title={Mechanism}]
+\footnotesize Not “more collaboration” in general: \HL{where an inventor stands} changes the combinations they can see. \normalfont\color{muted}Burt (2004)
+\end{accentbox}
 \end{frame}
 
-\begin{frame}{The conference takeaway in one view}
-\small
+\begin{frame}{Research question: from position to recombination}
+\centering
+\begin{tikzpicture}[
+	every node/.style={font=\footnotesize,align=center},
+	cell/.style={draw=navy,fill=eqbg,thick,rounded corners=6pt,text width=3.35cm,minimum height=1.25cm,inner sep=6pt},
+	qbox/.style={draw=warninggold,fill=accentbg,thick,rounded corners=7pt,text width=9.8cm,minimum height=1.0cm,inner sep=7pt}
+]
+\node[cell] (who) at (-4.2,1.0) {\stepchip{1}\quad\textbf{Who bridges?}\\[-1pt]\scriptsize individual inventors in time-varying networks};
+\node[cell] (what) at (0,1.0) {\stepchip{2}\quad\textbf{What recombines?}\\[-1pt]\scriptsize CPC subclass pairs rarer than history predicts};
+\node[cell] (when) at (4.2,1.0) {\stepchip{3}\quad\textbf{When does it pay?}\\[-1pt]\scriptsize effects may vary across network eras};
+
+\node[qbox] (rq) at (0,-1.25) {\bfseries Do constraint-based brokerage positions increase the probability of producing atypical patents in Europe, 1984--2023?};
+
+\foreach \x in {who,what,when}
+	\draw[-{Stealth[length=2.5mm]},thick,accent] (\x.south) -- (rq.north);
+\end{tikzpicture}
+
+\vspace{0.22cm}
 \begin{columns}[T,onlytextwidth]
-\column{0.31\textwidth}
-\begin{softbox}[title={\stepchip{1}\;Question}]
-Do brokers generate more \textbf{atypical patents} than inventors in denser collaboration neighborhoods?
-\end{softbox}
-
-\column{0.31\textwidth}
-\begin{softbox}[title={\stepchip{2}\;Setting}]
-EU-28 patenting, 1984--2023, inventor-level panel, time-varying networks, CPC-pair rarity.
-\end{softbox}
-
-\column{0.34\textwidth}
-\begin{softbox}[title={\stepchip{3}\;Contribution}]
-We bring regional brokerage down to the inventor level, showing how organizational boundaries and historical periods reshape the effect.
-\end{softbox}
+\column{0.32\textwidth}\centering\begin{bignum}{\Large EPO PATSTAT}\\{\scriptsize April 2024}\end{bignum}
+\column{0.32\textwidth}\centering\begin{bignum}{\Large 1984--2023}\\{\scriptsize EU-28 patenting}\end{bignum}
+\column{0.32\textwidth}\centering\begin{bignum}{\Large 2.46M}\\{\scriptsize estimation observations}\end{bignum}
 \end{columns}
-
-\vspace{0.15cm}
-\takeaway{More brokerage should raise the probability of atypical recombination because bridging positions expose inventors to combinations others never encounter.}
 \end{frame}

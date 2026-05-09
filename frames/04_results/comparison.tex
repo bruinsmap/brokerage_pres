@@ -1,31 +1,18 @@
 % !TEX root = ../../main.tex
-\begin{frame}{Robustness to alternative network constructions}
-\begin{table}[H]
-    \centering
-    \adjustbox{max width=\textwidth}{%
-    \begin{tabular}{lccccc}
-       \toprule
-        & \multicolumn{5}{c}{\textit{Dependent variable:} has\_atyp\_Z2 (Logit)}\\
-        \cmidrule(lr){2-6}
-                            & Full ($1/n$)     & Interfirm only  & Intrafirm only  & $w=0.9$         & $n{\geq}3$ patents\\
-                            & (1)             & (2)             & (3)             & (4)             & (5)\\  
-       \midrule 
-       Brokerage (std)      & 0.0537$^{***}$  & 0.0243$^{***}$  & 0.0498$^{***}$  & 0.0536$^{***}$  & 0.0413$^{***}$\\   
-                            & (0.0091)        & (0.0063)        & (0.0087)        & (0.0091)        & (0.0108)\\   
-       Log(Degree)          & 0.1768$^{***}$  & 0.2202$^{***}$  & 0.1827$^{***}$  & 0.1769$^{***}$  & 0.1045$^{***}$\\   
-                            & (0.0171)        & (0.0154)        & (0.0166)        & (0.0171)        & (0.0315)\\   
-       Log(Patents)         & 0.5982$^{***}$  & 0.6008$^{***}$  & 0.5980$^{***}$  & 0.5981$^{***}$  & 0.6395$^{***}$\\   
-                            & (0.0143)        & (0.0146)        & (0.0144)        & (0.0143)        & (0.0158)\\   
-       Experience (years)   & -0.0515$^{***}$ & -0.0520$^{***}$ & -0.0517$^{***}$ & -0.0515$^{***}$ & -0.0528$^{***}$\\   
-                            & (0.0023)        & (0.0023)        & (0.0023)        & (0.0023)        & (0.0026)\\   
-        \\
-       Observations         & 2,458,929       & 2,458,929       & 2,458,929       & 2,458,929       & 732,071\\  
-        \\
-       NUTS2 FE             & $\checkmark$    & $\checkmark$    & $\checkmark$    & $\checkmark$    & $\checkmark$\\   
-       Window FE            & $\checkmark$    & $\checkmark$    & $\checkmark$    & $\checkmark$    & $\checkmark$\\   
-       \bottomrule
-    \end{tabular}
-    }
-\end{table}
+\begin{frame}{Network robustness: positive across five constructions}
+\centering
+\begin{tikzpicture}[
+    every node/.style={font=\scriptsize,align=center},
+    score/.style={draw=navy,fill=eqbg,thick,rounded corners=6pt,text width=2.08cm,minimum height=1.02cm,inner sep=4pt}
+]
+\node[score] at (-4.85,0.75) {\bfseries Full\\\large 0.0537$^{***}$\\[-2pt]\scriptsize $N=2.46$M};
+\node[score] at (-2.42,0.75) {\bfseries Interfirm\\\large 0.0243$^{***}$\\[-2pt]\scriptsize $N=2.46$M};
+\node[score] at (0,0.75) {\bfseries Intrafirm\\\large 0.0498$^{***}$\\[-2pt]\scriptsize $N=2.46$M};
+\node[score] at (2.42,0.75) {\bfseries $w=0.9$\\\large 0.0536$^{***}$\\[-2pt]\scriptsize $N=2.46$M};
+\node[score] at (4.85,0.75) {\bfseries $n\geq3$\\\large 0.0413$^{***}$\\[-2pt]\scriptsize $N=732$k};
 
+\node[draw=warninggold,fill=accentbg,thick,rounded corners=7pt,text width=8.9cm,minimum height=0.76cm,inner sep=4pt] at (0,-0.95)
+    {\bfseries Robust message: sign survives; magnitudes differ.\\[-1pt]
+     \scriptsize Do not interpret this as “interfirm is larger.”};
+\end{tikzpicture}
 \end{frame}

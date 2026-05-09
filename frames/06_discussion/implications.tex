@@ -1,20 +1,20 @@
 % !TEX root = ../../main.tex
-\begin{frame}{The Vanishing Premium: Era matters}
+\begin{frame}{What not to overclaim}
+\centering
+\begin{tikzpicture}[
+	every node/.style={font=\scriptsize,align=center},
+	caution/.style={draw=warninggold,fill=accentbg,thick,rounded corners=6pt,text width=3.55cm,minimum height=1.15cm,inner sep=6pt},
+	safe/.style={draw=navy,fill=eqbg,thick,rounded corners=6pt,text width=3.55cm,minimum height=1.15cm,inner sep=6pt}
+]
+\node[caution] at (-4.4,0.95) {\stepchip{!}\quad\textbf{Regional relatedness}\\\scriptsize not estimated cleanly under current FE design};
+\node[caution] at (0,0.95) {\stepchip{!}\quad\textbf{Interfirm superiority}\\\scriptsize robustness table supports sign survival, not larger interfirm effect};
+\node[caution] at (4.4,0.95) {\stepchip{!}\quad\textbf{Temporal decline}\\\scriptsize evidence is heterogeneity/context, not a separate causal proof};
 
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\begin{softbox}[title=Temporal Attenuation]
-The brokerage advantage is not a "fixed property" of networks; it has declined by ~64\% since the late 1980s.
-\end{softbox}
+\node[safe,text width=9.7cm] at (0,-1.15)
+	{\bfseries Safer conference interpretation\\[-1pt]
+	Brokerage is robustly associated with atypical recombination, while the payoff appears to vary with the broader historical/network environment.};
+\end{tikzpicture}
 
-\column{0.48\textwidth}
-\begin{softbox}[title=The Connectivity Paradox]
-Brokerage returns are strongest during eras of rapid technological expansion and cross-domain recombination (the 1990s).
-\end{softbox}
-\end{columns}
-
-\vspace{0.3cm}
-\begin{accentbox}[title=Limitation]
-Patent-based evidence only; informal collaboration, non-patented innovation, and hidden organizational learning remain outside the frame.
-\end{accentbox}
+\vspace{0.12cm}
+\takeaway{The strongest contribution is the inventor-level micro-foundation; the contextual patterns motivate future work rather than replacing the main result.}
 \end{frame}
