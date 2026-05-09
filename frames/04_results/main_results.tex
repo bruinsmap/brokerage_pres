@@ -1,19 +1,25 @@
 % !TEX root = ../../main.tex
 \begin{frame}{Baseline: brokerage shifts the extensive margin}
 \begin{columns}[T,onlytextwidth]
-\column{0.66\textwidth}
+\column{0.48\textwidth}
 \centering
-\includegraphics[height=0.45\textheight,width=\linewidth,keepaspectratio]{figure1_marginal_effects.png}
-{\scriptsize\color{muted}\textit{Source: authors' pipeline output based on EPO PATSTAT}\par}
+\includegraphics[height=0.50\textheight,width=\linewidth,keepaspectratio]{figure1_marginal_effects.png}
+{\scriptsize\color{muted}\textit{marginal effects}\par}
 
-\column{0.31\textwidth}
-\vspace{0.03cm}
+\column{0.48\textwidth}
+\centering
+\includegraphics[height=0.50\textheight,width=\linewidth,keepaspectratio]{fig02_fe_comparison_pres.pdf}
+{\scriptsize\color{muted}\textit{FE comparison}\par}
+\end{columns}
+\vspace{0.08cm}
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
 \begin{bignum}
 \centering
-{\LARGE\bfseries\color{navy} +5--6\%}\\[0.10cm]
+{\LARGE\bfseries\color{navy} +5--6\%}\\[0.06cm]
 {\footnotesize higher odds per 1 SD brokerage}
 \end{bignum}
-\vspace{0.08cm}
+\column{0.48\textwidth}
 \begin{eqbox}
 \centering
 \footnotesize
@@ -21,7 +27,7 @@ $\beta_{Z<-2}=0.0537^{***}$\\[-1pt]
 $N=2{,}458{,}929$
 \end{eqbox}
 \end{columns}
-\vspace{0.10cm}
+\vspace{0.06cm}
 \takeaway{Modest but precise: brokerage is associated with a higher probability of producing at least one benchmark-atypical patent.}
 \end{frame}
 
@@ -44,7 +50,14 @@ $N=2{,}458{,}929$
 \end{tikzpicture}
 
 \vspace{0.05cm}
+\begin{columns}[T,onlytextwidth]
+\column{0.54\textwidth}
 \begin{accentbox}[title={Reading}]
 \footnotesize Brokerage predicts the \HL{extensive margin} across stricter rarity definitions.
 \end{accentbox}
+\column{0.43\textwidth}
+\centering
+\includegraphics[height=0.28\textheight,width=\linewidth,keepaspectratio]{fig06_robustness_variants.png}
+{\scriptsize\color{muted}\textit{robustness variants}\par}
+\end{columns}
 \end{frame}

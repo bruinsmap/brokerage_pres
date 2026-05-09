@@ -1,13 +1,18 @@
 % !TEX root = ../../main.tex
 \begin{frame}{Historical contingency: brokerage returns are not fixed}
 \begin{columns}[T,onlytextwidth]
-\column{0.68\textwidth}
+\column{0.55\textwidth}
 \centering
-\includegraphics[height=0.49\textheight,width=\linewidth,keepaspectratio]{figures/mechanism_R1_betas.pdf}
-{\scriptsize\color{muted}\textit{Source: rolling-window mechanism analysis; NUTS2-FE Poisson estimates}\par}
+\includegraphics[height=0.46\textheight,width=\linewidth,keepaspectratio]{mechanism_R1_betas.png}
+{\scriptsize\color{muted}\textit{Rolling-window $\beta$ estimates; NUTS2-FE Poisson}\par}
 
-\column{0.29\textwidth}
-\vspace{-0.08cm}
+\vspace{0.06cm}
+\centering
+\includegraphics[height=0.28\textheight,width=\linewidth,keepaspectratio]{figure2_temporal_trends.png}
+{\scriptsize\color{muted}\textit{Temporal trends}\par}
+
+\column{0.42\textwidth}
+\vspace{0.04cm}
 \begin{tikzpicture}[every node/.style={font=\scriptsize,align=center}]
 \draw[->,thick,muted] (0,0) -- (3.0,0) node[right,muted]{time};
 \foreach \x/\lab in {0.25/{1980s},1.6/{2000s},3.0/{2020s}} {
@@ -18,13 +23,19 @@
 	node[midway,above=12pt,warninggold,font=\scriptsize\bfseries]{changing era};
 \end{tikzpicture}
 
-\vspace{0.03cm}
+\vspace{0.06cm}
 \begin{accentbox}[title={Careful reading}]
 \scriptsize Consistent with historical contingency; not standalone causal proof.
 \end{accentbox}
-\vspace{0.03cm}
+\vspace{0.04cm}
 \begin{softbox}[title={Conference point}]
 \scriptsize Brokerage payoffs vary with the surrounding knowledge network.
 \end{softbox}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Coefficient forest: full model comparison}
+\centering
+\includegraphics[height=0.72\textheight,keepaspectratio]{figure5_forest_plot.png}
+{\scriptsize\color{muted}\textit{Forest plot of brokerage coefficients across model specifications}\par}
 \end{frame}

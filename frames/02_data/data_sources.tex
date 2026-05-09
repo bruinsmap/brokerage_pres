@@ -1,4 +1,26 @@
 % !TEX root = ../../main.tex
+\begin{frame}{Data architecture: the ego-network view}
+\begin{columns}[T,onlytextwidth]
+\column{0.57\textwidth}
+\begin{figure}
+    \centering
+    \includegraphics[height=0.70\textheight,keepaspectratio]{fig_ego_network.pdf}
+\end{figure}
+
+\column{0.39\textwidth}
+\begin{statbox}[title=What the sample buys us]
+\textbf{Scale:} Europe-wide coverage\\[0.06cm]
+\textbf{Unit:} Growing inventor network.\\[0.06cm]
+\textbf{Advantage:} compare inventors within the same historical context.
+\end{statbox}
+
+\vspace{0.12cm}
+\begin{accentbox}[title=Network building]
+Exponential time-weighted network.\\ Tie deletion and refresh.
+\end{accentbox}
+\end{columns}
+\end{frame}
+
 \begin{frame}{Data funnel: from patents to inventor-window tests}
 \centering
 \begin{tikzpicture}[
