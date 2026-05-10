@@ -8,12 +8,13 @@
 	outcome/.style={draw=warninggold,fill=accentbg,thick,rounded corners=6pt,text width=3.05cm,minimum height=0.92cm,inner sep=4pt},
 	arrow/.style={-{Stealth[length=3mm]},very thick,accent}
 ]
-\node[state] (holes) at (-4.35,1.0) {\bfseries Structural holes\\[-1pt]\scriptsize separated neighborhoods};
+\node[state] (holes) at (-4.65,1.0) {\bfseries Structural holes\\[-1pt]\scriptsize separated neighborhoods};
 \node[state] (knowledge) at (0,1.0) {\bfseries Non-redundant knowledge\\[-1pt]\scriptsize less-visible ideas};
-\node[outcome] (recomb) at (4.35,1.0) {\bfseries Atypical recombination\\[-1pt]\scriptsize rare CPC pairings};
+\node[outcome] (recomb) at (4.65,1.0) {\bfseries Atypical recombination\\[-1pt]\scriptsize rare CPC pairings};
 
-\draw[arrow] (holes) -- node[above,muted,font=\scriptsize]{broker position} (knowledge);
-\draw[arrow] (knowledge) -- node[above,muted,font=\scriptsize]{new search paths} (recomb);
+\draw[arrow] (holes) -- node[above,muted,font=\scriptsize,yshift=4pt]{broker \\ position} (knowledge);
+\draw[arrow] (knowledge) -- node[above,muted,font=\scriptsize,yshift=4pt]{new \\ search \\ paths} (recomb);
+
 
 \node[draw=softline,fill=softbg,rounded corners=6pt,text width=3.05cm,minimum height=0.85cm] (closed) at (-2.35,-1.05)
 	{\bfseries Closed neighborhood\\[-1pt]\scriptsize familiar pairs};
@@ -24,7 +25,7 @@
 
 \vspace{0.08cm}
 \begin{accentbox}[title={Mechanism}]
-\footnotesize Not “more collaboration” in general: \HL{where an inventor stands} changes the combinations they can see. \normalfont\color{muted}Burt (2004)
+\footnotesize Not ``more collaboration'' in general: \HL{where an inventor stands} changes the combinations they can see. \normalfont\color{muted}Burt (2004)
 \end{accentbox}
 \end{frame}
 
@@ -47,7 +48,7 @@
 
 \vspace{0.22cm}
 \begin{columns}[T,onlytextwidth]
-\column{0.32\textwidth}\centering\begin{bignum}{\Large EPO PATSTAT}\\{\scriptsize April 2024}\end{bignum}
+\column{0.32\textwidth}\centering\begin{bignum}{\Large OECD REGPAT}\\{\scriptsize January 2024}\end{bignum}
 \column{0.32\textwidth}\centering\begin{bignum}{\Large 1984--2023}\\{\scriptsize EU-28 patenting}\end{bignum}
 \column{0.32\textwidth}\centering\begin{bignum}{\Large 2.46M}\\{\scriptsize estimation observations}\end{bignum}
 \end{columns}

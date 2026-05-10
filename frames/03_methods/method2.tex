@@ -1,21 +1,2 @@
 ﻿% !TEX root = ../../main.tex
-\begin{frame}{Empirical roadmap: one claim, three checks}
-\centering
-\begin{tikzpicture}[
-	every node/.style={font=\footnotesize,align=center},
-	test/.style={draw=navy,fill=eqbg,thick,rounded corners=7pt,text width=3.35cm,minimum height=1.25cm,inner sep=6pt},
-	arrow/.style={-{Stealth[length=3mm]},very thick,accent}
-]
-\node[test] (baseline) at (-4.3,0.85) {\stepchip{1}\quad\textbf{Baseline}\\\scriptsize Does brokerage predict any atypical patent?};
-\node[test] (threshold) at (0,0.85) {\stepchip{2}\quad\textbf{Rarity thresholds}\\\scriptsize Does the sign survive stricter $Z$ cutoffs?};
-\node[test] (network) at (4.3,0.85) {\stepchip{3}\quad\textbf{Network definitions}\\\scriptsize Does the signal survive tie-weight variants?};
-\node[draw=warninggold,fill=accentbg,thick,rounded corners=7pt,text width=4.7cm,minimum height=1.0cm] (time) at (0,-1.25)
-	{\stepchip{4}\quad\textbf{Historical contingency}\\\scriptsize Are returns stable across technological eras?};
-\draw[arrow] (baseline) -- (threshold);
-\draw[arrow] (threshold) -- (network);
-\draw[arrow] (threshold.south) -- (time.north);
-\end{tikzpicture}
-
-\vspace{0.18cm}
-\takeaway{This keeps the conference story disciplined: first establish the association, then ask how sensitive and historically stable it is.}
-\end{frame}
+% Merged into method1.tex

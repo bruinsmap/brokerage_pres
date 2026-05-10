@@ -1,33 +1,36 @@
 % !TEX root = ../../main.tex
-\begin{frame}[shrink=3]{Identification design: compare inventors within place and era}
-\scriptsize
+\begin{frame}{Identification design \& empirical roadmap}
 \begin{eqbox}
 \[
-g(Y_{it})=\beta\,\text{Brokerage}_{it}+\boldsymbol{\gamma}'\mathbf{X}_{it}+\delta_{r(i)}+\tau_t
+E[Y_{it}]=\exp\!\bigl(\beta\,\text{Brokerage}_{it}+\boldsymbol{\gamma}'\mathbf{X}_{it}+\alpha_{r(i)}+\delta_t\bigr)
 \]
-\centering Benchmark outcome: $Y_{it}=\mathbf{1}\{\text{at least one atypical patent at }Z<-2\}$.
+\centering\scriptsize Benchmark: $Y_{it}=$ count of atypical patents per window ($Z<-2$). Poisson QMLE; SE clustered at NUTS2.
 \end{eqbox}
 
-\vspace{0.02cm}
+\vspace{0.18cm}
 \centering
 \begin{tikzpicture}[
 	every node/.style={font=\scriptsize,align=center},
-	block/.style={draw=navy,fill=eqbg,thick,rounded corners=6pt,text width=2.52cm,minimum height=0.82cm,inner sep=4pt},
-	absorb/.style={draw=softline,fill=softbg,thick,rounded corners=6pt,text width=2.55cm,minimum height=0.82cm,inner sep=4pt},
+	absorb/.style={draw=softline,fill=softbg,thick,rounded corners=5pt,minimum width=2.6cm,minimum height=1.2cm,inner sep=4pt},
+	test/.style={draw=navy,fill=eqbg,thick,rounded corners=5pt,text width=2.85cm,minimum height=1.0cm,inner sep=4pt},
 	arrow/.style={-{Stealth[length=2.4mm]},very thick,accent}
 ]
-\node[block] (b) at (-4.55,0.55) {\stepchip{$\beta$}\quad\textbf{Brokerage}\\\scriptsize structural position};
-\node[block] (x) at (-1.52,0.55) {\stepchip{$X$}\quad\textbf{Controls}\\\scriptsize degree, patents, experience};
-\node[absorb] (r) at (1.52,0.55) {\stepchip{$\delta_r$}\quad\textbf{NUTS2 FE}\\\scriptsize regional differences};
-\node[absorb] (t) at (4.55,0.55) {\stepchip{$\tau_t$}\quad\textbf{Window FE}\\\scriptsize time shocks};
-\node[draw=warninggold,fill=accentbg,thick,rounded corners=7pt,text width=4.95cm,minimum height=0.76cm] (y) at (0,-1.15)
-	{\bfseries atypical recombination outcome\\\scriptsize logit main model; counts in robustness};
+% Model components
+\node[absorb] (b) at (-4.55,2.2) {\stepchip{$\beta$}\\\textbf{Brokerage}\\\scriptsize structural position};
+\node[absorb] (x) at (-1.52,2.2) {\stepchip{$X$}\\\textbf{Controls}\\\scriptsize degree, patents, exp.};
+\node[absorb] (r) at (1.52,2.2) {\stepchip{$\delta_r$}\\\textbf{NUTS2 FE}\\\scriptsize regional differences};
+\node[absorb] (t) at (4.55,2.2) {\stepchip{$\tau_t$}\\\textbf{Window FE}\\\scriptsize time shocks};
+\node[draw=warninggold,fill=accentbg,thick,rounded corners=6pt,text width=4.8cm,minimum height=0.85cm] (y) at (0,0.72)
+	{\bfseries atypical recombination outcome\\\scriptsize Poisson counts main; logit / NegBin in robustness};
 \foreach \n in {b,x,r,t}
 	\draw[arrow] (\n.south) -- (y.north);
+% Roadmap
+\node[test] (baseline) at (-5.7,-0.75) {\stepchip{1}\quad\textbf{Baseline}\\\scriptsize brokerage $\to$ atypical?};
+\node[test] (threshold) at (-1.9,-0.75) {\stepchip{2}\quad\textbf{Rarity \\ thresholds}\\\scriptsize sign survives stricter $Z$?};
+\node[test] (network) at (1.9,-0.75) {\stepchip{3}\quad\textbf{Network  \\ variants}\\\scriptsize tie-weight robustness?};
+\node[test] (time) at (5.7,-0.75) {\stepchip{4}\quad\textbf{Historical  \\ contingency}\\\scriptsize returns stable across eras?};
+\draw[arrow] (baseline) -- (threshold);
+\draw[arrow] (threshold) -- (network);
+\draw[arrow] (network) -- (time);
 \end{tikzpicture}
-
-\vspace{0.02cm}
-\begin{accentbox}[title={Reading}]
-\footnotesize Associational design: compare brokered and less-brokered inventors within the same region and time window.
-\end{accentbox}
 \end{frame}

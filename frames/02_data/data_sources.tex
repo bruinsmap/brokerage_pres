@@ -2,12 +2,13 @@
 \begin{frame}{Data architecture: the ego-network view}
 \begin{columns}[T,onlytextwidth]
 \column{0.57\textwidth}
-\begin{figure}
-    \centering
-    \includegraphics[height=0.70\textheight,keepaspectratio]{fig_ego_network.pdf}
-\end{figure}
+\centering
+\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{fig_ego_network.pdf}
+
+
 
 \column{0.39\textwidth}
+\vspace{-0.22cm}
 \begin{statbox}[title=What the sample buys us]
 \textbf{Scale:} Europe-wide coverage\\[0.06cm]
 \textbf{Unit:} Growing inventor network.\\[0.06cm]
@@ -16,38 +17,13 @@
 
 \vspace{0.12cm}
 \begin{accentbox}[title=Network building]
-Exponential time-weighted network.\\ Tie deletion and refresh.
+    \begin{itemize}
+        \item Exponential time-weighted network.
+        \item  Tie deletion and refresh.
+    \end{itemize}
+
 \end{accentbox}
 \end{columns}
-\end{frame}
-
-\begin{frame}{Data funnel: from patents to inventor-window tests}
-\centering
-\begin{tikzpicture}[
-	every node/.style={font=\scriptsize,align=center},
-	funnel/.style={draw=navy,fill=eqbg,thick,rounded corners=5pt,minimum height=0.72cm,inner sep=3pt},
-	arrow/.style={-{Stealth[length=2.5mm]},very thick,accent}
-]
-\node[funnel,minimum width=2.5cm] (raw) at (-5.1,0.7) {EPO PATSTAT\\Apr.~2024};
-\node[funnel,minimum width=2.8cm] (eu) at (-2.6,0.7) {EU-28 inventors\\1984--2023};
-\node[funnel,minimum width=3.0cm] (net) at (0.15,0.7) {Time-window\\co-inventor networks};
-\node[funnel,minimum width=2.9cm] (merge) at (2.9,0.7) {Brokerage +\\CPC atypicality};
-\node[funnel,minimum width=2.45cm,fill=accentbg,draw=warninggold] (est) at (5.25,0.7) {Estimation\\sample};
-\foreach \a/\b in {raw/eu,eu/net,net/merge,merge/est}
-	\draw[arrow] (\a) -- (\b);
-
-\node[draw=softline,fill=softbg,rounded corners=6pt,text width=2.8cm,minimum height=0.82cm] at (-3.7,-0.95)
-	{\bfseries Network scale\\\large 5.45M\\[-2pt]\scriptsize records};
-\node[draw=accentborder,fill=accentbg,rounded corners=6pt,text width=2.8cm,minimum height=0.82cm] at (0,-0.95)
-	{\bfseries Main sample\\\large 2.46M\\[-2pt]\scriptsize observations};
-\node[draw=softline,fill=softbg,rounded corners=6pt,text width=2.8cm,minimum height=0.82cm] at (3.7,-0.95)
-	{\bfseries Comparison\\\large NUTS2 + time\\[-2pt]\scriptsize fixed effects};
-\end{tikzpicture}
-
-\vspace{0.08cm}
-\begin{accentbox}[title={Unit of analysis}]
-\footnotesize The \HL{inventor-window}: the same inventor can be observed in changing collaboration neighborhoods over time.
-\end{accentbox}
 \end{frame}
 
 \begin{frame}{Panel construction: what is joined to what?}
@@ -75,7 +51,18 @@ Exponential time-weighted network.\\ Tie deletion and refresh.
 \end{tikzpicture}
 
 \vspace{0.12cm}
-\begin{accentbox}[title={Main limitation, kept explicit}]
-We observe formal patent collaboration; informal knowledge exchange and non-patented innovation remain outside the frame.
+\begin{columns}[T,onlytextwidth]
+\column{0.32\textwidth}
+\begin{softbox}
+\centering\bfseries Network scale\\[2pt]{\large 5.45M}\\{\scriptsize records}
+\end{softbox}
+\column{0.32\textwidth}
+\begin{accentbox}
+\centering\bfseries Main sample\\[2pt]{\large 2.46M}\\{\scriptsize observations}
 \end{accentbox}
+\column{0.32\textwidth}
+\begin{softbox}
+\centering\bfseries Fixed effects\\[2pt]{\large NUTS2 + time}\\{\scriptsize within-region identification}
+\end{softbox}
+\end{columns}
 \end{frame}

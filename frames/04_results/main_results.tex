@@ -2,33 +2,45 @@
 \begin{frame}{Baseline result: brokerage predicts atypical patents}
 \begin{figure}
     \centering
-    \includegraphics[height=0.72\textheight,keepaspectratio]{fig02_fe_comparison_pres.pdf}
+    \includegraphics[height=0.64\textheight,keepaspectratio]{fig02_fe_comparison_pres.pdf}
 \end{figure}
 \begin{softbox}
 One SD more brokerage significantly raises the odds of atypical patenting by \textbf{5--6\%}; modest but \HL{persistent} across all thresholds.
 \end{softbox}
 \end{frame}
 
-\begin{frame}[shrink=8]{Threshold ladder: the sign survives stricter rarity cutoffs}
+\begin{frame}{Threshold ladder: the sign survives stricter rarity cutoffs}
 \centering
 \begin{tikzpicture}[
-	every node/.style={font=\scriptsize,align=center},
-	rung/.style={draw=navy,fill=eqbg,thick,rounded corners=6pt,text width=2.25cm,minimum height=0.88cm,inner sep=3pt},
-	arrow/.style={-{Stealth[length=2.4mm]},very thick,accent}
+	every node/.style={align=center},
+	rung/.style={draw=navy,fill=eqbg,very thick,rounded corners=8pt,
+	             text width=2.5cm,minimum height=1.8cm,inner sep=5pt},
+	arrow/.style={-{Stealth[length=3.5mm]},very thick,accent}
 ]
-\node[rung] (z0) at (-4.65,0.55) {\bfseries $Z<0$\\\large 0.0466$^{***}$};
-\node[rung] (z2) at (-1.55,0.55) {\bfseries $Z<-2$\\\large 0.0537$^{***}$};
-\node[rung] (z5) at (1.55,0.55) {\bfseries $Z<-5$\\\large 0.0582$^{***}$};
-\node[rung] (z14) at (4.65,0.55) {\bfseries $Z<-14$\\\large 0.0541$^{***}$};
+% nodes: spacing 3.2cm, node width ~3.0cm → 0.2cm gap each side
+\node[rung] (z0)  at (-4.8,0) {\bfseries\large $Z<0$\\[4pt]\Large 0.0466$^{***}$};
+\node[rung] (z2)  at (-1.6,0) {\bfseries\large $Z<{-}2$\\[4pt]\Large 0.0537$^{***}$};
+\node[rung] (z5)  at ( 1.6,0) {\bfseries\large $Z<{-}5$\\[4pt]\Large 0.0582$^{***}$};
+\node[rung] (z14) at ( 4.8,0) {\bfseries\large $Z<{-}14$\\[4pt]\Large 0.0541$^{***}$};
+
 \foreach \a/\b in {z0/z2,z2/z5,z5/z14}
 	\draw[arrow] (\a) -- (\b);
-\node[muted] at (0,-0.50) {broad novelty \hspace{1.35cm} benchmark \hspace{1.35cm} rare \hspace{1.35cm} extreme};
-\draw[warninggold,thick,decorate,decoration={brace,amplitude=4pt,mirror,raise=6pt}] (-5.65,-0.02) -- (5.65,-0.02)
-	node[midway,below=12pt,warninggold,font=\scriptsize\bfseries]{not driven by one cutoff};
+
+% labels sit below box bottoms (−0.9cm); clear of brace
+\node[muted,font=\small] at (-4.8,-1.15) {broad novelty};
+\node[muted,font=\small] at (-1.6,-1.15) {benchmark};
+\node[muted,font=\small] at ( 1.6,-1.15) {rare};
+\node[muted,font=\small] at ( 4.8,-1.15) {extreme};
+
+% brace path well below labels
+\draw[warninggold,very thick,decorate,
+      decoration={brace,amplitude=5pt,mirror,raise=5pt}]
+  (-5.5,-1.55) -- (5.5,-1.55)
+  node[midway,below=12pt,warninggold,font=\small\bfseries]{not driven by one cutoff};
 \end{tikzpicture}
 
-\vspace{0.10cm}
+\vspace{0.15cm}
 \begin{accentbox}[title={Reading}]
-\footnotesize Brokerage predicts the \HL{extensive margin} across stricter rarity definitions.
+\small Brokerage predicts the \HL{extensive margin} across stricter rarity definitions.
 \end{accentbox}
 \end{frame}

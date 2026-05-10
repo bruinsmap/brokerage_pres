@@ -1,28 +1,8 @@
 % !TEX root = ../../main.tex
 \begin{frame}{Network robustness: positive across five constructions}
 \centering
-\begin{tikzpicture}[
-    every node/.style={font=\scriptsize,align=center},
-    score/.style={draw=navy,fill=eqbg,thick,rounded corners=6pt,text width=2.08cm,minimum height=1.02cm,inner sep=4pt}
-]
-\node[score] at (-4.85,0.75) {\bfseries Full\\\large 0.0537$^{***}$\\[-2pt]\scriptsize $N=2.46$M};
-\node[score] at (-2.42,0.75) {\bfseries Interfirm\\\large 0.0243$^{***}$\\[-2pt]\scriptsize $N=2.46$M};
-\node[score] at (0,0.75) {\bfseries Intrafirm\\\large 0.0498$^{***}$\\[-2pt]\scriptsize $N=2.46$M};
-\node[score] at (2.42,0.75) {\bfseries $w=0.9$\\\large 0.0536$^{***}$\\[-2pt]\scriptsize $N=2.46$M};
-\node[score] at (4.85,0.75) {\bfseries $n\geq3$\\\large 0.0413$^{***}$\\[-2pt]\scriptsize $N=732$k};
-
-\node[draw=warninggold,fill=accentbg,thick,rounded corners=7pt,text width=8.9cm,minimum height=0.76cm,inner sep=4pt] at (0,-0.95)
-    {\bfseries Robust message: sign survives; magnitudes differ.\\[-1pt]
-     \scriptsize Do not interpret this as “interfirm is larger.”};
-\end{tikzpicture}
-\vspace{0.08cm}
-\begin{columns}[T,onlytextwidth]
-\column{0.60\textwidth}
-\centering
-\includegraphics[height=0.46\textheight,width=\linewidth,keepaspectratio]{fig06_robustness_variants.png}
-{\scriptsize\color{muted}\textit{Network variant coefficients}\par}
-\column{0.36\textwidth}
+\includegraphics[height=0.72\textheight,width=\linewidth,keepaspectratio]{fig06_robustness_variants.png}
 \begin{softbox}
-\footnotesize Interfirm ties drive a \textbf{smaller} coefficient because within-firm brokerage is also productive---organizational boundaries alone do not explain the effect.
+\small Interfirm $>$ full gradient reflects \HL{tie-weight correction}: as intrafirm clique noise is removed the brokerage measure sharpens --- not evidence that interfirm brokerage is inherently superior.
 \end{softbox}
-\end{columns}\end{frame}
+\end{frame}
