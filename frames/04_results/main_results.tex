@@ -1,34 +1,12 @@
 % !TEX root = ../../main.tex
-\begin{frame}{Baseline: brokerage shifts the extensive margin}
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\centering
-\includegraphics[height=0.54\textheight,width=\linewidth,keepaspectratio]{figure1_marginal_effects.png}
-{\scriptsize\color{muted}\textit{marginal effects}\par}
-
-\column{0.48\textwidth}
-\centering
-\includegraphics[height=0.54\textheight,width=\linewidth,keepaspectratio]{fig02_fe_comparison_pres.pdf}
-{\scriptsize\color{muted}\textit{FE comparison}\par}
-\end{columns}
-\vspace{0.08cm}
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\begin{bignum}
-\centering
-{\LARGE\bfseries\color{navy} +5--6\%}\\[0.06cm]
-{\footnotesize higher odds per 1 SD brokerage}
-\end{bignum}
-\column{0.48\textwidth}
-\begin{eqbox}
-\centering
-\footnotesize
-$\beta_{Z<-2}=0.0537^{***}$\\[-1pt]
-$N=2{,}458{,}929$
-\end{eqbox}
-\end{columns}
-\vspace{0.06cm}
-\takeaway{Modest but precise: brokerage is associated with a higher probability of producing at least one benchmark-atypical patent.}
+\begin{frame}{Baseline result: brokerage predicts atypical patents}
+\begin{figure}
+    \centering
+    \includegraphics[height=0.72\textheight,keepaspectratio]{fig02_fe_comparison_pres.pdf}
+\end{figure}
+\begin{softbox}
+One SD more brokerage significantly raises the odds of atypical patenting by \textbf{5--6\%}; modest but \HL{persistent} across all thresholds.
+\end{softbox}
 \end{frame}
 
 \begin{frame}[shrink=8]{Threshold ladder: the sign survives stricter rarity cutoffs}
@@ -49,15 +27,8 @@ $N=2{,}458{,}929$
 	node[midway,below=12pt,warninggold,font=\scriptsize\bfseries]{not driven by one cutoff};
 \end{tikzpicture}
 
-\vspace{0.05cm}
-\begin{columns}[T,onlytextwidth]
-\column{0.54\textwidth}
+\vspace{0.10cm}
 \begin{accentbox}[title={Reading}]
 \footnotesize Brokerage predicts the \HL{extensive margin} across stricter rarity definitions.
 \end{accentbox}
-\column{0.43\textwidth}
-\centering
-\includegraphics[height=0.36\textheight,width=\linewidth,keepaspectratio]{fig06_robustness_variants.png}
-{\scriptsize\color{muted}\textit{robustness variants}\par}
-\end{columns}
 \end{frame}
